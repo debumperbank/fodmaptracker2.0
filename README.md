@@ -1,6 +1,6 @@
 # Fodmap Tracker 2.0 — MVP
 
-Mobile-first Nederlandse webapp voor het registreren van voeding en symptomen. Deze eerste codebasis bevat accounts, een persoonlijk dashboard, toevoegen/verwijderen van voedingsregistraties en symptoomregistraties, en een Supabase-schema met Row Level Security (RLS).
+Mobile-first Nederlandse webapp voor het registreren van voeding en symptomen. Deze codebasis bevat accounts, een persoonlijk dashboard, toevoegen/verwijderen van voedingsregistraties en een Supabase-schema met Row Level Security (RLS).
 
 ## Wat zit erin?
 
@@ -21,9 +21,9 @@ Mobile-first Nederlandse webapp voor het registreren van voeding en symptomen. D
 
 1. Pak het project uit.
 2. Maak een Supabase-project aan.
-3. Open **SQL Editor** in Supabase en voer `supabase/migrations/0001_initial_schema.sql` uit.
+3. Open **SQL Editor** in Supabase en voer de migraties in volgorde uit: `0001_initial_schema.sql`, `0002_admin_dashboard.sql` en `0003_security_hardening.sql`.
 4. Kopieer `.env.example` naar `.env.local`.
-5. Vul `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` en `NEXT_PUBLIC_SITE_URL=http://localhost:3000` in vanuit je Supabase-project.
+5. Vul `SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY` en `SITE_URL=http://localhost:3000` in vanuit je project en lokale URL.
 6. Voeg in Supabase Auth → URL Configuration `http://localhost:3000/auth/callback` toe aan de toegestane redirect URLs.
 7. Voer uit:
 
@@ -37,11 +37,13 @@ npm run dev
 ## Productie
 
 - Zet de app op Vercel of een vergelijkbaar platform.
-- Stel dezelfde environment variables in met de productie-URL.
+- Stel `SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY` en `SITE_URL` als server-only environment variables in.
 - Voeg de productie callback URL toe aan Supabase Auth.
-- Voer `npm run typecheck` en `npm run build` uit in CI voordat je deployt.
+- De CI-workflow controleert op bekende geheimspatronen, kwetsbare dependencies, TypeScript-fouten en buildfouten.
 - Configureer Supabase-back-ups, e-mailbevestiging, rate limiting en monitoring.
-- Zet nooit een Supabase `service_role`/secret key in `NEXT_PUBLIC_*` of clientcode.
+- Zet nooit een Supabase `service_role`- of secret key in `NEXT_PUBLIC_*`, clientcode of Git.
+
+De publishable key is volgens Supabase ontworpen voor gebruik in clienttoepassingen en is op zichzelf geen geheim. Deze app gebruikt de key alleen in server-side code, zodat de configuratie niet onnodig in browserbundels terechtkomt. De databasebeveiliging blijft afhankelijk van RLS en correcte databasebevoegdheden.
 
 ## Scope en bewuste beperkingen
 
