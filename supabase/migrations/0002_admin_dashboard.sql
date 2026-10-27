@@ -8,7 +8,7 @@ create table if not exists public.app_admins (
 );
 
 alter table public.app_admins enable row level security;
-revoke all on table public.app_admins from anon, authenticated;
+revoke all on table public.app_admins from public, anon, authenticated;
 
 create or replace function public.is_app_admin()
 returns boolean
