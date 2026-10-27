@@ -1,0 +1,7 @@
+import Link from "next/link";
+import { Brand } from "@/components/Brand";
+import { signOut } from "@/lib/actions";
+export function AppShell({ children, active, email }: {children: React.ReactNode;active:string;email:string}) {
+ const links=[{href:"/dashboard",label:"Overzicht",key:"dashboard",icon:"◫"},{href:"/voeding",label:"Voeding",key:"voeding",icon:"＋"},{href:"/klachten",label:"Klachten",key:"klachten",icon:"⌁"}];
+ return <><div className="app-shell"><header className="topbar"><Brand/><nav className="nav" aria-label="Hoofdnavigatie">{links.map(x=><Link key={x.key} className={active===x.key?"active":""} href={x.href}>{x.label}</Link>)}</nav><div style={{display:"flex",alignItems:"center",gap:12}}><span className="subtle" style={{fontSize:12,maxWidth:150,overflow:"hidden",textOverflow:"ellipsis"}}>{email}</span><form action={signOut}><button className="btn btn-secondary" style={{minHeight:36,padding:"7px 10px",fontSize:12}}>Uitloggen</button></form></div></header>{children}<p className="footer-note">Fodmap Tracker helpt je gegevens bij te houden en stelt geen diagnose. Bespreek voedingskeuzes met een gekwalificeerde diëtist.</p></div><nav className="mobile-nav" aria-label="Mobiele navigatie">{links.map(x=><Link key={x.key} className={active===x.key?"active":""} href={x.href}><span style={{display:"block",fontSize:18,lineHeight:1.2,marginBottom:3}}>{x.icon}</span>{x.label}</Link>)}</nav></>;
+}

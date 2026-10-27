@@ -1,0 +1,6 @@
+import { redirect } from "next/navigation";
+import { createClient } from "@/lib/supabase/server";
+import type { FoodEntry, SymptomEntry } from "@/lib/types";
+export async function requireUser(){const supabase=await createClient();const {data:{user},error}=await supabase.auth.getUser();if(error||!user)redirect("/login");return {supabase,user};}
+export async function getFoodEntries(limit=50):Promise<FoodEntry[]>{const {supabase,user}=await requireUser();const {data,error}=await supabase.from("food_entries").select("id,user_id,food_name,meal_type,portion_description,notes,eaten_at,created_at").eq("user_id",user.id).order("eaten_at",{ascending:false}).limit(limit);if(error)throw new Error("Het voedingsdagboek kon niet worden geladen.");return (data??[]) as FoodEntry[];}
+export async function getSymptomEntries(limit=50):Promise<SymptomEntry[]>{const {supabase,user}=await requireUser();const {data,error}=await supabase.from("symptom_entries").select("id,user_id,symptom_type,severity,notes,experienced_at,created_at").eq("user_id",user.id).order("experienced_at",{ascending:false}).limit(limit);if(error)throw new Error("Het symptoomdagboek kon niet worden geladen.");return (data??[]) as SymptomEntry[];}
