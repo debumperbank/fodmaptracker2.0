@@ -37,7 +37,7 @@ jobs:
 
       - name: Build production app
         env:
-          NEXT_PUBLIC_SUPABASE_URL: https://example.supabase.co
-          NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: sb_publishable_placeholder_for_ci
-          NEXT_PUBLIC_SITE_URL: http://localhost:3000
+          SUPABASE_URL: https://example.supabase.co
+          SUPABASE_PUBLISHABLE_KEY: sb_publishable_placeholder_for_ci
+          SITE_URL: http://localhost:3000
         run: npm run build
