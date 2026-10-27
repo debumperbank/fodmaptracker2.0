@@ -26,7 +26,8 @@ const checks = [
   ["Slack-token", /\bxox[baprs]-[A-Za-z0-9-]{10,}\b/],
   ["Stripe-secret-key", /\b(?:sk|rk)_(?:live|test)_[A-Za-z0-9]{16,}\b/],
   ["database-URL-with-password", /postgres(?:ql)?:\/\/[^:\s/]+:[^@\s/]+@/i],
-  ["service-role-key-assignment", /\b(?:SUPABASE_SERVICE_ROLE_KEY|SERVICE_ROLE_KEY)\s*=\s*(?!your_|YOUR_|placeholder|example|<)[^\s#]+/i],
+  ["service-role-key-assignment", /\b(?:SUPABASE_SERVICE_ROLE_KEY|SUPABASE_SECRET_KEY|SUPABASE_ACCESS_TOKEN|SERVICE_ROLE_KEY|DATABASE_URL|POSTGRES_PASSWORD|JWT_SECRET)\s*=\s*(?!your_|YOUR_|placeholder|example|<)[^\s#]+/i],
+  ["Supabase-config-prefixed-public", /\bNEXT_PUBLIC_(?:SUPABASE_URL|SUPABASE_PUBLISHABLE_KEY|SITE_URL)\b/i],
   ["secret-env-exposed-as-public", /\bNEXT_PUBLIC_[A-Z0-9_]*(?:SERVICE_ROLE|SECRET|PRIVATE|DATABASE_URL|JWT_SECRET|PASSWORD|ACCESS_TOKEN|ADMIN_TOKEN)\b/i],
 ];
 
