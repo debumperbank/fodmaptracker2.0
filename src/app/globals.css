@@ -20,3 +20,4 @@
 .recipe-card-image{width:calc(100% + 42px);height:170px;object-fit:cover;margin:-21px -21px 7px;border-radius:17px 17px 0 0;background:var(--green-light)}
 @media(max-width:720px){.recipe-card-image{width:calc(100% + 34px);margin:-17px -17px 7px;border-radius:15px 15px 0 0}}
 @media(max-width:720px){.carousel-controls{display:none}.recipe-carousel{margin-right:-15px;padding-right:15px}.carousel-card{flex-basis:82vw}}
+.visibility-field{border:1px solid var(--line);border-radius:12px;padding:14px;display:grid;grid-template-columns:1fr 1fr;gap:10px}.visibility-field legend{font-size:13px;font-weight:750;padding:0 5px}.visibility-field label{display:flex;align-items:flex-start;gap:9px;padding:11px;border:1px solid var(--line);border-radius:10px;cursor:pointer}.visibility-field input{margin-top:4px}.visibility-field span{display:grid}.visibility-field small{color:var(--muted);margin-top:2px}@media(max-width:560px){.visibility-field{grid-template-columns:1fr}}
