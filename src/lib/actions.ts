@@ -3,114 +3,21 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { requireUser } from "@/lib/data";
-import { credentialsSchema, foodSchema, idSchema, symptomSchema } from "@/lib/validation";
-
-const str = (f: FormData, k: string) => String(f.get(k) ?? "");
-
-export async function signIn(form: FormData) {
-  const p = credentialsSchema.safeParse({ email: str(form, "email"), password: str(form, "password") });
-  if (!p.success) redirect("/login?error=invoer");
-  const s = await createClient();
-  const { error } = await s.auth.signInWithPassword(p.data);
-  if (error) redirect("/login?error=auth");
-  redirect("/dashboard");
-}
-
-function registrationErrorCode(error: { code?: string; message: string }) {
-  const code = error.code ?? "";
-  const message = error.message.toLowerCase();
-  if (code === "user_already_exists" || code === "email_exists" || message.includes("already registered") || message.includes("already exists")) return "bestaat";
-  if (code === "weak_password" || message.includes("password should be")) return "wachtwoord";
-  if (code === "email_address_invalid" || code === "validation_failed" || message.includes("invalid email")) return "invoer";
-  if (code === "over_email_send_rate_limit" || message.includes("rate limit") || message.includes("email rate")) return "limiet";
-  if (message.includes("database error saving new user") || message.includes("database error")) return "database";
-  return "auth";
-}
-
-export async function signUp(form: FormData) {
-  const p = credentialsSchema.safeParse({ email: str(form, "email"), password: str(form, "password") });
-  if (!p.success) redirect("/registreren?error=invoer");
-  const s = await createClient();
-  const origin = process.env.SITE_URL;
-  const { error } = await s.auth.signUp({
-    ...p.data,
-    options: origin
-      ? { emailRedirectTo: `${origin.endsWith("/") ? origin.slice(0, -1) : origin}/auth/callback` }
-      : undefined,
-  });
-  if (error) {
-    console.error("[signUp] Supabase Auth error", { code: error.code ?? "unknown", status: error.status ?? "unknown" });
-    redirect(`/registreren?error=${registrationErrorCode(error)}`);
-  }
-  redirect("/login?message=controleer-email");
-}
-
-export async function signOut() {
-  const s = await createClient();
-  await s.auth.signOut();
-  redirect("/login?message=uitgelogd");
-}
-
-export async function addFoodEntry(form: FormData) {
-  const p = foodSchema.safeParse({
-    food_name: str(form, "food_name"),
-    meal_type: str(form, "meal_type"),
-    portion_description: str(form, "portion_description"),
-    notes: str(form, "notes"),
-  });
-  if (!p.success) redirect("/voeding?error=invoer");
-  const { supabase, user } = await requireUser();
-  const { error } = await supabase.from("food_entries").insert({
-    user_id: user.id,
-    food_name: p.data.food_name,
-    meal_type: p.data.meal_type,
-    portion_description: p.data.portion_description || null,
-    notes: p.data.notes || null,
-  });
-  if (error) redirect("/voeding?error=opslaan");
-  revalidatePath("/voeding");
-  revalidatePath("/dashboard");
-  redirect("/voeding?message=toegevoegd");
-}
-
-export async function addSymptomEntry(form: FormData) {
-  const p = symptomSchema.safeParse({
-    symptom_type: str(form, "symptom_type"),
-    severity: str(form, "severity"),
-    notes: str(form, "notes"),
-  });
-  if (!p.success) redirect("/klachten?error=invoer");
-  const { supabase, user } = await requireUser();
-  const { error } = await supabase.from("symptom_entries").insert({
-    user_id: user.id,
-    symptom_type: p.data.symptom_type,
-    severity: p.data.severity,
-    notes: p.data.notes || null,
-  });
-  if (error) redirect("/klachten?error=opslaan");
-  revalidatePath("/klachten");
-  revalidatePath("/dashboard");
-  redirect("/klachten?message=toegevoegd");
-}
-
-export async function deleteFoodEntry(form: FormData) {
-  const p = idSchema.safeParse(str(form, "id"));
-  if (!p.success) redirect("/voeding?error=invoer");
-  const { supabase, user } = await requireUser();
-  const { error } = await supabase.from("food_entries").delete().eq("id", p.data).eq("user_id", user.id);
-  if (error) redirect("/voeding?error=verwijderen");
-  revalidatePath("/dashboard");
-  revalidatePath("/voeding");
-  redirect("/voeding?message=verwijderd");
-}
-
-export async function deleteSymptomEntry(form: FormData) {
-  const p = idSchema.safeParse(str(form, "id"));
-  if (!p.success) redirect("/klachten?error=invoer");
-  const { supabase, user } = await requireUser();
-  const { error } = await supabase.from("symptom_entries").delete().eq("id", p.data).eq("user_id", user.id);
-  if (error) redirect("/klachten?error=verwijderen");
-  revalidatePath("/dashboard");
-  revalidatePath("/klachten");
-  redirect("/klachten?message=verwijderd");
-}
+import { credentialsSchema,foodSchema,idSchema,recipeSchema,symptomSchema,weeklyMenuSchema } from "@/lib/validation";
+const str=(f:FormData,k:string)=>String(f.get(k)??"");
+const optionalDate=(value:string)=>value?new Date(value).toISOString():undefined;
+async function uploadMealPhoto(form:FormData,userId:string,supabase:Awaited<ReturnType<typeof createClient>>){const value=form.get("photo");if(!(value instanceof File)||value.size===0)return null;const allowed=new Map([["image/jpeg","jpg"],["image/png","png"],["image/webp","webp"]]);const extension=allowed.get(value.type);if(!extension||value.size>5*1024*1024)throw new Error("invalid-photo");const path=`${userId}/${crypto.randomUUID()}.${extension}`;const {error}=await supabase.storage.from("meal-photos").upload(path,value,{contentType:value.type,upsert:false});if(error)throw new Error("photo-upload");return path;}
+export async function signIn(form:FormData){const p=credentialsSchema.safeParse({email:str(form,"email"),password:str(form,"password")});if(!p.success)redirect("/login?error=invoer");const s=await createClient();const {error}=await s.auth.signInWithPassword(p.data);if(error)redirect("/login?error=auth");redirect("/dashboard");}
+function registrationErrorCode(error:{code?:string;message:string}){const code=error.code??"";const message=error.message.toLowerCase();if(code==="user_already_exists"||code==="email_exists"||message.includes("already registered")||message.includes("already exists"))return "bestaat";if(code==="weak_password"||message.includes("password should be"))return "wachtwoord";if(code==="email_address_invalid"||code==="validation_failed"||message.includes("invalid email"))return "invoer";if(code==="over_email_send_rate_limit"||message.includes("rate limit")||message.includes("email rate"))return "limiet";if(message.includes("database error saving new user")||message.includes("database error"))return "database";return "auth";}
+export async function signUp(form:FormData){const p=credentialsSchema.safeParse({email:str(form,"email"),password:str(form,"password")});if(!p.success)redirect("/registreren?error=invoer");const s=await createClient();const origin=process.env.SITE_URL;const {error}=await s.auth.signUp({...p.data,options:origin?{emailRedirectTo:`${origin.endsWith("/")?origin.slice(0,-1):origin}/auth/callback`}:undefined});if(error){console.error("[signUp] Supabase Auth error",{code:error.code??"unknown",status:error.status??"unknown"});redirect(`/registreren?error=${registrationErrorCode(error)}`);}redirect("/login?message=controleer-email");}
+export async function signOut(){const s=await createClient();await s.auth.signOut();redirect("/login?message=uitgelogd");}
+export async function addFoodEntry(form:FormData){const p=foodSchema.safeParse({food_name:str(form,"food_name"),meal_type:str(form,"meal_type"),portion_description:str(form,"portion_description"),notes:str(form,"notes"),eaten_at:str(form,"eaten_at")});if(!p.success)redirect("/voeding?error=invoer");const {supabase,user}=await requireUser();let photo_path:null|string=null;try{photo_path=await uploadMealPhoto(form,user.id,supabase)}catch{redirect("/voeding?error=foto")}const {error}=await supabase.from("food_entries").insert({user_id:user.id,food_name:p.data.food_name,meal_type:p.data.meal_type,portion_description:p.data.portion_description||null,notes:p.data.notes||null,photo_path,...(p.data.eaten_at?{eaten_at:optionalDate(p.data.eaten_at)}:{})});if(error){if(photo_path)await supabase.storage.from("meal-photos").remove([photo_path]);redirect("/voeding?error=opslaan")}revalidatePath("/voeding");revalidatePath("/dashboard");redirect("/voeding?message=toegevoegd");}
+export async function addSymptomEntry(form:FormData){const p=symptomSchema.safeParse({food_entry_id:str(form,"food_entry_id"),symptom_type:str(form,"symptom_type"),custom_symptom:str(form,"custom_symptom"),severity:str(form,"severity"),notes:str(form,"notes"),experienced_at:str(form,"experienced_at")});if(!p.success)redirect("/klachten?error=invoer");const {supabase,user}=await requireUser();if(p.data.food_entry_id){const {data}=await supabase.from("food_entries").select("id").eq("id",p.data.food_entry_id).eq("user_id",user.id).maybeSingle();if(!data)redirect("/klachten?error=invoer")}const {error}=await supabase.from("symptom_entries").insert({user_id:user.id,food_entry_id:p.data.food_entry_id||null,symptom_type:p.data.symptom_type,custom_symptom:p.data.symptom_type==="anders"?p.data.custom_symptom:null,severity:p.data.severity,notes:p.data.notes||null,...(p.data.experienced_at?{experienced_at:optionalDate(p.data.experienced_at)}:{})});if(error)redirect("/klachten?error=opslaan");revalidatePath("/klachten");revalidatePath("/dashboard");redirect("/klachten?message=toegevoegd");}
+export async function updateFoodEntry(form:FormData){const id=idSchema.safeParse(str(form,"id"));const p=foodSchema.safeParse({food_name:str(form,"food_name"),meal_type:str(form,"meal_type"),portion_description:str(form,"portion_description"),notes:str(form,"notes"),eaten_at:str(form,"eaten_at")});if(!id.success||!p.success||!p.data.eaten_at)redirect(`/voeding/${str(form,"id")}/bewerken?error=invoer`);const {supabase,user}=await requireUser();const {data:current}=await supabase.from("food_entries").select("photo_path").eq("id",id.data).eq("user_id",user.id).maybeSingle();if(!current)redirect("/voeding?error=onbekend");const oldPhoto=current.photo_path as string|null;let photo_path=oldPhoto;let uploaded:null|string=null;try{uploaded=await uploadMealPhoto(form,user.id,supabase);if(uploaded)photo_path=uploaded}catch{redirect(`/voeding/${id.data}/bewerken?error=foto`)}const {error}=await supabase.from("food_entries").update({food_name:p.data.food_name,meal_type:p.data.meal_type,portion_description:p.data.portion_description||null,notes:p.data.notes||null,eaten_at:optionalDate(p.data.eaten_at),photo_path}).eq("id",id.data).eq("user_id",user.id);if(error){if(uploaded)await supabase.storage.from("meal-photos").remove([uploaded]);redirect(`/voeding/${id.data}/bewerken?error=opslaan`)}if(uploaded&&oldPhoto)await supabase.storage.from("meal-photos").remove([oldPhoto]);revalidatePath("/voeding");revalidatePath("/dashboard");redirect("/voeding?message=bijgewerkt");}
+export async function updateSymptomEntry(form:FormData){const id=idSchema.safeParse(str(form,"id"));const p=symptomSchema.safeParse({food_entry_id:str(form,"food_entry_id"),symptom_type:str(form,"symptom_type"),custom_symptom:str(form,"custom_symptom"),severity:str(form,"severity"),notes:str(form,"notes"),experienced_at:str(form,"experienced_at")});if(!id.success||!p.success||!p.data.experienced_at)redirect(`/klachten/${str(form,"id")}/bewerken?error=invoer`);const {supabase,user}=await requireUser();if(p.data.food_entry_id){const {data}=await supabase.from("food_entries").select("id").eq("id",p.data.food_entry_id).eq("user_id",user.id).maybeSingle();if(!data)redirect(`/klachten/${id.data}/bewerken?error=invoer`)}const {error}=await supabase.from("symptom_entries").update({food_entry_id:p.data.food_entry_id||null,symptom_type:p.data.symptom_type,custom_symptom:p.data.symptom_type==="anders"?p.data.custom_symptom:null,severity:p.data.severity,notes:p.data.notes||null,experienced_at:optionalDate(p.data.experienced_at)}).eq("id",id.data).eq("user_id",user.id);if(error)redirect(`/klachten/${id.data}/bewerken?error=opslaan`);revalidatePath("/klachten");revalidatePath("/dashboard");redirect("/klachten?message=bijgewerkt");}
+export async function deleteFoodEntry(form:FormData){const p=idSchema.safeParse(str(form,"id"));if(!p.success)redirect("/voeding?error=invoer");const {supabase,user}=await requireUser();const {data:entry}=await supabase.from("food_entries").select("photo_path").eq("id",p.data).eq("user_id",user.id).maybeSingle();const {error}=await supabase.from("food_entries").delete().eq("id",p.data).eq("user_id",user.id);if(error)redirect("/voeding?error=verwijderen");if(entry?.photo_path)await supabase.storage.from("meal-photos").remove([entry.photo_path]);revalidatePath("/dashboard");revalidatePath("/voeding");redirect("/voeding?message=verwijderd");}
+export async function deleteSymptomEntry(form:FormData){const p=idSchema.safeParse(str(form,"id"));if(!p.success)redirect("/klachten?error=invoer");const {supabase,user}=await requireUser();const {error}=await supabase.from("symptom_entries").delete().eq("id",p.data).eq("user_id",user.id);if(error)redirect("/klachten?error=verwijderen");revalidatePath("/dashboard");revalidatePath("/klachten");redirect("/klachten?message=verwijderd");}
+export async function addRecipe(form:FormData){const p=recipeSchema.safeParse({title:str(form,"title"),description:str(form,"description"),servings:str(form,"servings"),preparation_minutes:str(form,"preparation_minutes"),ingredients:str(form,"ingredients"),instructions:str(form,"instructions")});if(!p.success)redirect("/recepten/nieuw?error=invoer");const {supabase,user}=await requireUser();const {data,error}=await supabase.from("recipes").insert({user_id:user.id,title:p.data.title,description:p.data.description||null,servings:p.data.servings,preparation_minutes:p.data.preparation_minutes===""?null:p.data.preparation_minutes,ingredients:p.data.ingredients,instructions:p.data.instructions}).select("id").single();if(error||!data)redirect("/recepten/nieuw?error=opslaan");revalidatePath("/recepten");redirect(`/recepten/${data.id}?message=toegevoegd`);}
+export async function deleteRecipe(form:FormData){const p=idSchema.safeParse(str(form,"id"));if(!p.success)redirect("/recepten?error=invoer");const {supabase,user}=await requireUser();const {error}=await supabase.from("recipes").delete().eq("id",p.data).eq("user_id",user.id);if(error)redirect("/recepten?error=verwijderen");revalidatePath("/recepten");revalidatePath("/weekmenu");redirect("/recepten?message=verwijderd");}
+export async function addWeeklyMenuEntry(form:FormData){const p=weeklyMenuSchema.safeParse({recipe_id:str(form,"recipe_id"),planned_for:str(form,"planned_for"),meal_type:str(form,"meal_type")});if(!p.success)redirect(`/recepten/${str(form,"recipe_id")}?error=planning`);const {supabase,user}=await requireUser();const {data:recipe}=await supabase.from("recipes").select("id").eq("id",p.data.recipe_id).eq("user_id",user.id).maybeSingle();if(!recipe)redirect("/recepten?error=onbekend");const {error}=await supabase.from("weekly_menu_entries").upsert({user_id:user.id,...p.data},{onConflict:"user_id,planned_for,meal_type"});if(error)redirect(`/recepten/${p.data.recipe_id}?error=planning`);revalidatePath("/weekmenu");redirect("/weekmenu?message=gepland");}
+export async function deleteWeeklyMenuEntry(form:FormData){const p=idSchema.safeParse(str(form,"id"));if(!p.success)redirect("/weekmenu?error=invoer");const {supabase,user}=await requireUser();const {error}=await supabase.from("weekly_menu_entries").delete().eq("id",p.data).eq("user_id",user.id);if(error)redirect("/weekmenu?error=verwijderen");revalidatePath("/weekmenu");redirect("/weekmenu?message=verwijderd");}

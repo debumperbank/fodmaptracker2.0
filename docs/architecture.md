@@ -11,6 +11,9 @@ Browser → Next.js App Router → server actions / server components → Supaba
 - `symptom_entries`: symptoomtype, subjectieve ernst (0–10), notities en timestamp.
 - `food_catalog`: voedingsmiddelen met herkomst en reviewstatus.
 - `food_fodmap_assessments`: beoordeling per FODMAP-groep en portie met bron, reviewer en verificatiedatum.
+- `recipes`: persoonlijke recepten met ingrediënten, bereidingswijze, porties en bereidingstijd.
+- `weekly_menu_entries`: een recept per gebruiker, datum en eetmoment; gekoppeld aan `recipes`.
+- `meal-photos`: privé Storage-bucket; objectpaden beginnen met het gebruikers-id en worden via tijdelijke links getoond.
 
 ## Veiligheidsprincipes
 
