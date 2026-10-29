@@ -14,6 +14,9 @@ Mobile-first Nederlandse webapp voor het registreren van voeding en symptomen. D
 - Recepten per dag en eetmoment in een weekmenu plannen
 - Maaltijden en klachten bewerken, aan elkaar koppelen en van vrije notities voorzien
 - Privéfoto's bij maaltijden via een afgeschermde Supabase Storage-bucket
+- Profiel met unieke gebruikersnaam en privéprofielfoto
+- Herstartbare eliminatiefase van 28 dagen met dagteller en dagelijkse tips
+- Bronvermelde low-FODMAP-receptsuggesties en persoonlijke favorieten
 - Geen demo-gezondheidsdata en geen automatisch verzonnen FODMAP-classificaties
 
 ## Vereisten
@@ -25,7 +28,7 @@ Mobile-first Nederlandse webapp voor het registreren van voeding en symptomen. D
 
 1. Pak het project uit.
 2. Maak een Supabase-project aan.
-3. Open **SQL Editor** in Supabase en voer de migraties in `supabase/migrations` op volgorde uit (`0001` t/m `0005`).
+3. Open **SQL Editor** in Supabase en voer de migraties in `supabase/migrations` op volgorde uit (`0001` t/m `0006`).
 4. Kopieer `.env.example` naar `.env.local`.
 5. Vul `SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY` en `SITE_URL=http://localhost:3000` in vanuit je Supabase-project.
 6. Voeg in Supabase Auth → URL Configuration `http://localhost:3000/auth/callback` toe aan de toegestane redirect URLs.
