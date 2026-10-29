@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { AppShell } from "@/components/AppShell";
+import { RecipeCarousel } from "@/components/RecipeCarousel";
 import { getCuratedRecipes, getRecipes, requireUser } from "@/lib/data";
 import { menuMealNames, type MenuMealType } from "@/lib/types";
 
@@ -35,10 +36,10 @@ export default async function RecipesPage({searchParams}:{searchParams:Promise<R
   </section>
 
   <div className="section-heading recipe-section-heading"><div><div className="eyebrow">Alle bronrecepten</div><h2 className="page-title" style={{fontSize:27}}>{suggestions.length} recept{suggestions.length===1?"":"en"}</h2></div><span className="subtle">Scroll om alles te bekijken</span></div>
-  {suggestions.length===0?<section className="card empty"><p>Geen recepten passen bij deze filters.</p><Link href="/recepten" style={{color:"var(--green)",fontWeight:700}}>Bekijk alle recepten →</Link></section>:<section className="recipe-grid">{suggestions.map(recipe=><article className="card recipe-card" key={recipe.id}><div><div className="eyebrow">{recipe.source_name} · {recipe.servings} porties{recipe.preparation_minutes?` · ${recipe.preparation_minutes} min`:""}</div><div className="recipe-badges">{recipe.suitable_for_elimination&&<span className="pill phase-pill">Eliminatiefase</span>}<span className="pill category-pill">{menuMealNames[recipe.category]}</span></div><h2 className="section-title" style={{fontSize:20,margin:"8px 0 5px"}}>{recipe.title}</h2><p className="subtle" style={{fontSize:13,margin:0}}>{recipe.summary}</p></div><Link className="btn btn-secondary" href={`/recepten/uitgelicht/${recipe.id}`}>Bekijk recept →</Link></article>)}</section>}
+  {suggestions.length===0?<section className="card empty"><p>Geen recepten passen bij deze filters.</p><Link href="/recepten" style={{color:"var(--green)",fontWeight:700}}>Bekijk alle recepten →</Link></section>:<RecipeCarousel kind="curated" recipes={suggestions} label="Alle bronrecepten"/>}
 
   <div className="section-heading own-recipes-heading"><div><div className="eyebrow">Jouw verzameling</div><h2 className="page-title" style={{fontSize:27}}>{recipes.length} eigen recept{recipes.length===1?"":"en"}</h2></div><Link className="btn" href="/recepten/nieuw">+ Nieuw recept</Link></div>
-  {recipes.length===0?<section className="card empty"><p>{query?"Geen eigen recepten gevonden met deze zoekterm.":"Je hebt nog geen eigen recepten opgeslagen."}</p><Link href="/recepten/nieuw" style={{color:"var(--green)",fontWeight:700}}>Maak je eerste recept →</Link></section>:<section className="recipe-grid">{recipes.map(recipe=><article className="card recipe-card" key={recipe.id}><div><div className="eyebrow">Eigen recept · {recipe.servings} {recipe.servings===1?"persoon":"personen"}{recipe.preparation_minutes?` · ${recipe.preparation_minutes} min`:""}</div><h2 className="section-title" style={{fontSize:20,margin:"8px 0 5px"}}>{recipe.title}</h2>{recipe.description&&<p className="subtle" style={{fontSize:13,margin:0}}>{recipe.description}</p>}</div><Link className="btn btn-secondary" href={`/recepten/${recipe.id}`}>Bekijk recept →</Link></article>)}</section>}
+  {recipes.length===0?<section className="card empty"><p>{query?"Geen eigen recepten gevonden met deze zoekterm.":"Je hebt nog geen eigen recepten opgeslagen."}</p><Link href="/recepten/nieuw" style={{color:"var(--green)",fontWeight:700}}>Maak je eerste recept →</Link></section>:<RecipeCarousel kind="own" recipes={recipes} label="Jouw eigen recepten"/>}
   <p className="footer-note">Eigen recepten zijn persoonlijke notities. Bronadaptaties zijn geen medisch advies; portiegrootte en individuele tolerantie blijven bepalend.</p>
  </AppShell>;
 }
