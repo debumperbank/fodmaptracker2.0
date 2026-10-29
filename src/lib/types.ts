@@ -7,7 +7,7 @@ export interface Recipe { id:string; user_id:string; title:string; description:s
 export interface WeeklyMenuEntry { id:string; user_id:string; recipe_id:string; planned_for:string; meal_type:MenuMealType; created_at:string; recipe:Pick<Recipe,"id"|"title"|"servings"|"preparation_minutes">|null; }
 export interface Profile { id:string; display_name:string|null; username:string|null; avatar_path:string|null; avatar_url?:string|null; timezone:string; created_at:string; updated_at:string; }
 export interface DietPhase { id:string; user_id:string; phase_type:"elimination"|"reintroduction"|"maintenance"; status:"active"|"completed"|"cancelled"; started_at:string; planned_end_at:string|null; ended_at:string|null; created_at:string; }
-export interface CuratedRecipe { id:string; title:string; summary:string; category:MenuMealType; source_name:string; source_url:string; suitable_for_elimination:boolean; liked:boolean; }
+export interface CuratedRecipe { id:string; title:string; summary:string; category:MenuMealType; source_name:string; source_url:string; suitable_for_elimination:boolean; servings:number; preparation_minutes:number|null; ingredients:string; instructions:string; attribution_note:string; phase_note:string; liked:boolean; }
 export const mealNames:Record<MealType,string>={ontbijt:"Ontbijt",lunch:"Lunch",avondeten:"Avondeten",tussendoor:"Tussendoor"};
 export const symptomNames:Record<SymptomType,string>={buikpijn:"Buikpijn",opgeblazen:"Opgeblazen gevoel",winderigheid:"Winderigheid",stoelgang:"Veranderde stoelgang",misselijkheid:"Misselijkheid",anders:"Anders"};
 export const menuMealNames:Record<MenuMealType,string>={ontbijt:"Ontbijt",lunch:"Lunch",avondeten:"Avondeten",tussendoor:"Tussendoor"};

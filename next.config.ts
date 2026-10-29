@@ -12,6 +12,13 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  experimental: {
+    serverActions: {
+      // Accommodate the 5 MB meal-photo limit plus multipart form overhead.
+      // Profile photos remain restricted to 3 MB in the server action itself.
+      bodySizeLimit: "6mb",
+    },
+  },
   turbopack: { root: process.cwd() },
   async headers() {
     return [
