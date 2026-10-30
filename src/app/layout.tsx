@@ -1,9 +1,10 @@
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import type { Metadata, Viewport } from "next";
+import { languageInfo } from "@/lib/i18n";
+import { getRequestLanguage } from "@/lib/request-language";
 import "./globals.css";
 
-<Analytics />
 export const metadata: Metadata = {
   title: { default: "Fodmap Tracker", template: "%s · Fodmap Tracker" },
   description: "Houd voeding en symptomen overzichtelijk bij.",
@@ -34,8 +35,8 @@ export const metadata: Metadata = {
   },
   
 };
-<SpeedInsights />
-export const viewport: Viewport = { themeColor: "#f7f8f5", colorScheme: "light", width: "device-width", initialScale: 1, maximumScale: 1 };
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="nl"><body>{children}</body></html>;
+export const viewport: Viewport = { themeColor: "#f7f8f5", colorScheme: "light", width: "device-width", initialScale: 1 };
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const language = await getRequestLanguage();
+  return <html lang={languageInfo[language].locale}><body>{children}<Analytics /><SpeedInsights /></body></html>;
 }
