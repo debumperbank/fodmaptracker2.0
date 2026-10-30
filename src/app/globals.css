@@ -33,3 +33,4 @@
 @media(max-width:720px){.mobile-nav{padding-top:9px;padding-bottom:calc(9px + env(safe-area-inset-bottom))}.mobile-nav a{min-height:56px}.brand-wordmark{font-size:21px}.brand>img{width:40px;height:40px}}
 @media(max-width:390px){.brand{gap:7px}.brand-wordmark{font-size:19px}.brand>img{width:36px;height:36px}.mobile-nav a{min-height:54px;font-size:10px}.nav-icon{font-size:19px}}
 @media(hover:hover){.mobile-nav a:hover{background:#f2f7f3;color:var(--green)}}
+button:disabled{cursor:wait;opacity:.65}

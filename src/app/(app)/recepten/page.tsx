@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { AppShell } from "@/components/AppShell";
+import { SubmitButton } from "@/components/SubmitButton";
 import { RecipeCarousel } from "@/components/RecipeCarousel";
 import { getCuratedRecipes, getPublicRecipes, getRecipes, requireUser } from "@/lib/data";
 import { menuMealNames, type MenuMealType } from "@/lib/types";
@@ -31,7 +32,7 @@ export default async function RecipesPage({searchParams}:{searchParams:Promise<R
     <div className="field"><label htmlFor="categorie">Categorie</label><select id="categorie" name="categorie" defaultValue={category}><option value="">Alle categorieën</option>{categories.map(([value,label])=><option key={value} value={value}>{label}</option>)}</select></div>
     <div className="field"><label htmlFor="bron">Bron</label><select id="bron" name="bron" defaultValue={source}><option value="">Alle bronnen</option>{sources.map(name=><option key={name} value={name}>{name}</option>)}</select></div>
     <label className="filter-check"><input type="checkbox" name="fase" value="eliminatie" defaultChecked={eliminationOnly}/> Geschikt voor eliminatiefase</label>
-    <div className="recipe-filter-actions"><button className="btn" type="submit">Resultaten tonen</button>{hasFilters&&<Link className="btn btn-secondary" href="/recepten">Filters wissen</Link>}</div>
+    <div className="recipe-filter-actions"><SubmitButton className="btn">Resultaten tonen</SubmitButton>{hasFilters&&<Link className="btn btn-secondary" href="/recepten">Filters wissen</Link>}</div>
    </form>
   </section>
 
