@@ -6,5 +6,5 @@ export function recipeImagePath(title: string) {
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
 
-  return `/recipes/items/${slug}.jpg`;
+  return `/recipes/items/${slug}.webp`;
 }

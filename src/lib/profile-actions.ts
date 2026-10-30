@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { requireUser } from "@/lib/data";
+import { optimizeUploadedImage } from "@/lib/image-processing";
 import { idSchema, profileSchema } from "@/lib/validation";
 
 const field = (form: FormData, name: string) => String(form.get(name) ?? "");
@@ -10,11 +11,9 @@ const field = (form: FormData, name: string) => String(form.get(name) ?? "");
 async function uploadAvatar(form: FormData, userId: string, supabase: Awaited<ReturnType<typeof requireUser>>["supabase"]) {
   const photo = form.get("avatar");
   if (!(photo instanceof File) || photo.size === 0) return null;
-  const allowed = new Map([["image/jpeg", "jpg"], ["image/png", "png"], ["image/webp", "webp"]]);
-  const extension = allowed.get(photo.type);
-  if (!extension || photo.size > 3 * 1024 * 1024) throw new Error("invalid-avatar");
-  const path = `${userId}/${crypto.randomUUID()}.${extension}`;
-  const { error } = await supabase.storage.from("profile-photos").upload(path, photo, { contentType: photo.type, upsert: false });
+  const optimized = await optimizeUploadedImage(photo, 3 * 1024 * 1024);
+  const path = `${userId}/${crypto.randomUUID()}.webp`;
+  const { error } = await supabase.storage.from("profile-photos").upload(path, optimized, { contentType: "image/webp", upsert: false });
   if (error) throw new Error("avatar-upload");
   return path;
 }
