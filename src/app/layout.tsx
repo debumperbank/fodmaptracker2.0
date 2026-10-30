@@ -2,8 +2,8 @@ import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+
 <Analytics />
-<SpeedInsights />
 export const metadata: Metadata = {
   title: { default: "Fodmap Tracker", template: "%s · Fodmap Tracker" },
   description: "Houd voeding en symptomen overzichtelijk bij.",
@@ -32,7 +32,9 @@ export const metadata: Metadata = {
       { url: "/splash/1320x2868.png", media: "(device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3)" },
     ],
   },
+  
 };
+<SpeedInsights />
 export const viewport: Viewport = { themeColor: "#f7f8f5", colorScheme: "light", width: "device-width", initialScale: 1, maximumScale: 1 };
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return <html lang="nl"><body>{children}</body></html>;
