@@ -15,6 +15,8 @@ tags:
 - vegan
 - zonder-knoflook-en-ui
 category: recept
+image: "/articles/items/recept-regenboogbowl-wortelhummus.webp"
+image_alt: "Bijpassende foodfoto bij dit artikel"
 servings: 4
 prep_time: PT20M
 cook_time: PT30M

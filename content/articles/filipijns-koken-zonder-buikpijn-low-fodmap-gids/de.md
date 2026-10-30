@@ -14,6 +14,8 @@ tags:
   - knoflook
   - kokosmelk
 category: gids
+image: "/articles/items/filipijns-koken-zonder-buikpijn-low-fodmap-gids.webp"
+image_alt: "Passendes Foodfoto zu diesem Artikel"
 ---
 
 # Philippinisch kochen ohne Bauchweh: der Low-FODMAP-Leitfaden

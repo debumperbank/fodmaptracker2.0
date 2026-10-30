@@ -14,6 +14,8 @@ tags:
 - snack
 - zonder-knoflook-en-ui
 category: recept
+image: "/articles/items/recept-low-fodmap-lumpia-shanghai.webp"
+image_alt: "Photographie culinaire correspondant à cet article"
 servings: 4
 prep_time: PT40M
 cook_time: PT20M

@@ -15,6 +15,8 @@ tags:
 - stoofgerecht
 - zonder-knoflook-en-ui
 category: recept
+image: "/articles/items/recept-marokkaanse-kiptajine-citroen-olijven.webp"
+image_alt: "Passendes Foodfoto zu diesem Artikel"
 servings: 4
 prep_time: PT50M
 cook_time: PT1H

@@ -14,6 +14,8 @@ tags:
 - vegetarisch
 - zonder-knoflook-en-ui
 category: recept
+image: "/articles/items/recept-low-fodmap-pasta-alla-norma.webp"
+image_alt: "Photographie culinaire correspondant à cet article"
 servings: 4
 prep_time: PT15M
 cook_time: PT35M

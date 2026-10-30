@@ -13,6 +13,8 @@ tags:
   - monash
   - dieetfasen
 category: gids
+image: "/articles/items/wat-is-het-low-fodmap-dieet-3-fasen.webp"
+image_alt: "Food photograph matching this article"
 ---
 
 # What is the low-FODMAP diet? The 3 phases explained

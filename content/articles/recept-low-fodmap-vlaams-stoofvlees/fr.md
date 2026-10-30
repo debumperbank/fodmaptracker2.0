@@ -14,6 +14,8 @@ tags:
 - rundvlees
 - zonder-knoflook-en-ui
 category: recept
+image: "/articles/items/recept-low-fodmap-vlaams-stoofvlees.webp"
+image_alt: "Photographie culinaire correspondant à cet article"
 servings: 4
 prep_time: PT25M
 cook_time: PT3H15M

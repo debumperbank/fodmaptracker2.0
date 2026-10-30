@@ -14,6 +14,8 @@ tags:
   - knoflook
   - kokosmelk
 category: gids
+image: "/articles/items/filipijns-koken-zonder-buikpijn-low-fodmap-gids.webp"
+image_alt: "Food photograph matching this article"
 ---
 
 # Filipino cooking without a tummy ache: the low-FODMAP guide

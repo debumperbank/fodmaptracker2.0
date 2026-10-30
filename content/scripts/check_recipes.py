@@ -109,7 +109,14 @@ for slug in sorted(os.listdir(ROOT)):
         if fm.get("slug") != slug: err(f"{p}: slug mismatch")
         if fm.get("lang") != lang: err(f"{p}: lang mismatch")
         if not isinstance(fm.get("date"), datetime.date): err(f"{p}: date is not a date")
-        if "image" in fm: err(f"{p}: unexpected image field")
+        image = fm.get("image")
+        if image is not None:
+            if not isinstance(image, str) or not image.startswith("/articles/items/") or not image.endswith(".webp"):
+                err(f"{p}: image must point to /articles/items/*.webp")
+            elif not os.path.exists(os.path.join(ROOT, "..", "..", "public", image.lstrip("/"))):
+                err(f"{p}: image file does not exist: {image}")
+            if not isinstance(fm.get("image_alt"), str) or not fm["image_alt"].strip():
+                err(f"{p}: image_alt is required when image is set")
         check_thresholds(p, fm, body)
         if fm.get("category") == "recept":
             check_recipe(p, fm, body)

@@ -14,6 +14,8 @@ tags:
 - vegetarisch
 - zonder-knoflook-en-ui
 category: recept
+image: "/articles/items/recept-low-fodmap-pizza-verde.webp"
+image_alt: "Photographie culinaire correspondant à cet article"
 servings: 4
 prep_time: PT1H15M
 cook_time: PT20M

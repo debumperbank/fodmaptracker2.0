@@ -27,8 +27,8 @@ describe("recipeImageSlug", () => {
     expect(recipeImagePath("Quinoa-koolsalade met pepita’s")).toBe("/recipes/items/quinoa-koolsalade-met-pepitas.webp");
   });
 
-  it("does not request a file for pasta recipes that have no image", () => {
-    for (const title of pastaTitles) expect(recipeImagePath(title)).toBeNull();
+  it("points every pasta recipe at its own image", () => {
+    for (const title of pastaTitles) expect(recipeImagePath(title)).toBe(`/recipes/items/${recipeImageSlug(title)}.webp`);
   });
 
   it("lists exactly the files in public/recipes/items", () => {
