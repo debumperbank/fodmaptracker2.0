@@ -1,7 +1,9 @@
 import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 <Analytics />
+<SpeedInsights />
 export const metadata: Metadata = {
   title: { default: "Fodmap Tracker", template: "%s · Fodmap Tracker" },
   description: "Houd voeding en symptomen overzichtelijk bij.",
