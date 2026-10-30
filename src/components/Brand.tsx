@@ -1,1 +1,1 @@
-export function Brand() { return <a className="brand" href="/dashboard" aria-label="Fodmap Tracker home">fodmap<span>tracker</span><span style={{color:"#8cb69a"}}>.</span></a>; }
+export function Brand() { return <a className="brand" href="/dashboard" aria-label="Fodmap Tracker home"><img src="/logo-emblem.png" alt="" width="38" height="38"/><span className="brand-wordmark">fodmap<span>tracker</span><span className="brand-dot">.</span></span></a>; }

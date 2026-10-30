@@ -4,10 +4,10 @@ export const metadata: Metadata = {
   title: { default: "Fodmap Tracker", template: "%s · Fodmap Tracker" },
   description: "Houd voeding en symptomen overzichtelijk bij.",
   applicationName: "Fodmap Tracker",
-  manifest: "/manifest.webmanifest?v=2",
+  manifest: "/manifest.webmanifest?v=3",
   icons: {
-    icon: [{ url: "/icon-192.png", sizes: "192x192", type: "image/png" }],
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    icon: [{ url: "/icon-192.png?v=3", sizes: "192x192", type: "image/png" }],
+    apple: [{ url: "/apple-touch-icon.png?v=3", sizes: "180x180", type: "image/png" }],
   },
   appleWebApp: {
     capable: true,
