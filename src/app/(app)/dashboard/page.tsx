@@ -1,12 +1,13 @@
 import Link from "next/link";
-import { requireUser, getActiveDietPhase, getFoodEntries, getSymptomEntries } from "@/lib/data";
+import { requireUser, getActiveDietPhase, getFoodEntries, getProfile, getSymptomEntries } from "@/lib/data";
 import { AppShell } from "@/components/AppShell";
+import { LatestArticles } from "@/components/LatestArticles";
 import { SeverityStatCard } from "@/components/SeverityStatCard";
 import { mealNames, symptomNames } from "@/lib/types";
 export const metadata={title:"Overzicht"};
 export default async function Dashboard(){
  const {user}=await requireUser();
- const [foods,symptoms,phase]=await Promise.all([getFoodEntries(100),getSymptomEntries(1000),getActiveDietPhase()]);
+ const [foods,symptoms,phase,profile]=await Promise.all([getFoodEntries(100),getSymptomEntries(1000),getActiveDietPhase(),getProfile()]);
  const today=new Date().toLocaleDateString("en-CA",{timeZone:"Europe/Amsterdam"});
  const isToday=(v:string)=>new Date(v).toLocaleDateString("en-CA",{timeZone:"Europe/Amsterdam"})===today;
  const todaysFoods=foods.filter(x=>isToday(x.eaten_at));const todaysSymptoms=symptoms.filter(x=>isToday(x.experienced_at));
@@ -20,5 +21,6 @@ export default async function Dashboard(){
  <section className="stat-grid" style={{marginTop:17}}><div className="card stat"><div className="subtle" style={{fontSize:12}}>Maaltijden vandaag</div><div className="stat-number">{todaysFoods.length}</div><div className="subtle" style={{fontSize:12}}>Geregistreerd</div></div><div className="card stat"><div className="subtle" style={{fontSize:12}}>Klachten vandaag</div><div className="stat-number">{todaysSymptoms.length}</div><div className="subtle" style={{fontSize:12}}>Registraties</div></div><SeverityStatCard stats={severityStats}/></section>
  <section className="grid-main" style={{marginTop:18}}><div className="card"><div style={{display:"flex",justifyContent:"space-between",alignItems:"center",gap:12}}><h2 className="section-title">Recente maaltijden</h2><Link className="subtle" style={{fontSize:12}} href="/voeding">Alles bekijken →</Link></div>{foods.length===0?<div className="empty">Je eerste maaltijd begint hier.<br/><Link href="/voeding" style={{color:"var(--green)",fontWeight:700}}>Registreer een maaltijd</Link></div>:foods.slice(0,4).map(x=><div className="entry" key={x.id}><div><div className="entry-title">{x.food_name}</div><div className="subtle" style={{fontSize:12,marginTop:3}}>{mealNames[x.meal_type]} · {new Intl.DateTimeFormat("nl-NL",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit",timeZone:"Europe/Amsterdam"}).format(new Date(x.eaten_at))}</div></div>{x.portion_description&&<span className="pill">{x.portion_description}</span>}</div>)}</div>
  <div className="card"><div style={{display:"flex",justifyContent:"space-between",alignItems:"center",gap:12}}><h2 className="section-title">Recente klachten</h2><Link className="subtle" style={{fontSize:12}} href="/klachten">Alles bekijken →</Link></div>{symptoms.length===0?<div className="empty">Nog geen klachten geregistreerd.<br/><Link href="/klachten" style={{color:"var(--green)",fontWeight:700}}>Een registratie toevoegen</Link></div>:symptoms.slice(0,4).map(x=><div className="entry" key={x.id}><div><div className="entry-title">{symptomNames[x.symptom_type]}</div><div className="subtle" style={{fontSize:12,marginTop:3}}>{new Intl.DateTimeFormat("nl-NL",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit",timeZone:"Europe/Amsterdam"}).format(new Date(x.experienced_at))}</div></div><span className="pill">{x.severity}/10</span></div>)}</div></section>
+ <LatestArticles lang={profile.preferred_language} carousel/>
  <p className="footer-note">Registraties tonen persoonlijke ervaringen en bewijzen geen oorzaak-gevolgrelatie tussen een maaltijd en een klacht.</p></AppShell>;
 }
