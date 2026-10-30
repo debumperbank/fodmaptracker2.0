@@ -27,3 +27,9 @@
 @media(max-width:720px){.severity-stat{padding:0}.severity-stat.is-expanded{grid-column:1/-1}.severity-stat-summary{padding:13px}.severity-periods{grid-template-columns:repeat(3,1fr);padding:0 10px 10px}.severity-periods button{font-size:12px}.severity-stat-detail{font-size:10px}}
 @media(max-width:720px){.carousel-controls{display:none}.recipe-carousel{margin-right:-15px;padding-right:15px}.carousel-card{flex-basis:82vw}}
 .visibility-field{border:1px solid var(--line);border-radius:12px;padding:14px;display:grid;grid-template-columns:1fr 1fr;gap:10px}.visibility-field legend{font-size:13px;font-weight:750;padding:0 5px}.visibility-field label{display:flex;align-items:flex-start;gap:9px;padding:11px;border:1px solid var(--line);border-radius:10px;cursor:pointer}.visibility-field input{margin-top:4px}.visibility-field span{display:grid}.visibility-field small{color:var(--muted);margin-top:2px}@media(max-width:560px){.visibility-field{grid-template-columns:1fr}}
+
+/* Duidelijker merk en comfortabelere mobiele touch-navigatie. */
+.brand-wordmark{font-size:23px;line-height:1;white-space:nowrap}.mobile-nav a{display:flex;min-height:58px;align-items:center;justify-content:center;flex-direction:column;touch-action:manipulation;-webkit-tap-highlight-color:transparent;transition:background-color .15s ease,color .15s ease,transform .1s ease}.mobile-nav a:active{background:var(--green-light);color:var(--green);transform:translateY(1px)}
+@media(max-width:720px){.mobile-nav{padding-top:9px;padding-bottom:calc(9px + env(safe-area-inset-bottom))}.mobile-nav a{min-height:56px}.brand-wordmark{font-size:21px}.brand>img{width:40px;height:40px}}
+@media(max-width:390px){.brand{gap:7px}.brand-wordmark{font-size:19px}.brand>img{width:36px;height:36px}.mobile-nav a{min-height:54px;font-size:10px}.nav-icon{font-size:19px}}
+@media(hover:hover){.mobile-nav a:hover{background:#f2f7f3;color:var(--green)}}
