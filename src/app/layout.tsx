@@ -1,6 +1,8 @@
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import type { Metadata, Viewport } from "next";
+import { headers } from "next/headers";
+import { isArticleLanguage } from "@/lib/articles";
 import { languageInfo } from "@/lib/i18n";
 import { getRequestLanguage } from "@/lib/request-language";
 import "./globals.css";
@@ -37,6 +39,8 @@ export const metadata: Metadata = {
 };
 export const viewport: Viewport = { themeColor: "#f7f8f5", colorScheme: "light", width: "device-width", initialScale: 1 };
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  const language = await getRequestLanguage();
+  const pathname = (await headers()).get("x-pathname") ?? "";
+  const segment = pathname.split("/").filter(Boolean)[0] ?? "";
+  const language = isArticleLanguage(segment) ? segment : await getRequestLanguage();
   return <html lang={languageInfo[language].locale}><body>{children}<Analytics /><SpeedInsights /></body></html>;
 }
