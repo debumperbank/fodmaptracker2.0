@@ -30,6 +30,7 @@ export const metadata: Metadata = {
     ],
   },
 };
+<analytics />
 export const viewport: Viewport = { themeColor: "#f7f8f5", colorScheme: "light", width: "device-width", initialScale: 1, maximumScale: 1 };
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return <html lang="nl"><body>{children}</body></html>;
