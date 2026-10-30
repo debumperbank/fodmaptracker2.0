@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { requireUser } from "@/lib/data";
 import { optimizeUploadedImage } from "@/lib/image-processing";
+import { appLanguage } from "@/lib/i18n";
 import { idSchema, profileSchema } from "@/lib/validation";
 
 const field = (form: FormData, name: string) => String(form.get(name) ?? "");
@@ -31,7 +32,7 @@ export async function updateProfile(form: FormData) {
   } catch {
     redirect("/profiel?error=foto");
   }
-  const { error } = await supabase.from("profiles").update({ display_name: parsed.data.display_name || null, username: parsed.data.username, avatar_path: avatarPath, updated_at: new Date().toISOString() }).eq("id", user.id);
+  const { error } = await supabase.from("profiles").update({ display_name: parsed.data.display_name || null, username: parsed.data.username, avatar_path: avatarPath, preferred_language: appLanguage(field(form, "preferred_language")), updated_at: new Date().toISOString() }).eq("id", user.id);
   if (error) {
     if (uploaded) await supabase.storage.from("profile-photos").remove([uploaded]);
     redirect(error.code === "23505" ? "/profiel?error=gebruikersnaam" : "/profiel?error=opslaan");
@@ -39,6 +40,13 @@ export async function updateProfile(form: FormData) {
   if (uploaded && current?.avatar_path) await supabase.storage.from("profile-photos").remove([current.avatar_path]);
   revalidatePath("/profiel");
   redirect("/profiel?message=bijgewerkt");
+}
+
+export async function updateLanguage(form: FormData) {
+  const { supabase, user } = await requireUser();
+  const { error } = await supabase.from("profiles").update({ preferred_language: appLanguage(field(form, "preferred_language")), updated_at: new Date().toISOString() }).eq("id", user.id);
+  if (error) redirect("/profiel?error=taal");
+  revalidatePath("/", "layout");
 }
 
 export async function startEliminationPhase() {

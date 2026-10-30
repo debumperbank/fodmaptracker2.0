@@ -5,8 +5,26 @@ export const metadata: Metadata = {
   description: "Houd voeding en symptomen overzichtelijk bij.",
   applicationName: "Fodmap Tracker",
   manifest: "/manifest.webmanifest",
+  icons: {
+    icon: [{ url: "/icon-192.png", sizes: "192x192", type: "image/png" }],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
+  appleWebApp: {
+    capable: true,
+    title: "Fodmap Tracker",
+    statusBarStyle: "default",
+    startupImage: [
+      { url: "/splash/750x1334.png", media: "(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" },
+      { url: "/splash/1125x2436.png", media: "(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" },
+      { url: "/splash/1170x2532.png", media: "(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3)" },
+      { url: "/splash/1179x2556.png", media: "(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3)" },
+      { url: "/splash/828x1792.png", media: "(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)" },
+      { url: "/splash/1242x2688.png", media: "(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)" },
+      { url: "/splash/1290x2796.png", media: "(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3)" },
+    ],
+  },
 };
-export const viewport: Viewport = { themeColor: "#22664f", width: "device-width", initialScale: 1, maximumScale: 1 };
+export const viewport: Viewport = { themeColor: "#f7f8f5", colorScheme: "light", width: "device-width", initialScale: 1, maximumScale: 1 };
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return <html lang="nl"><body>{children}</body></html>;
 }
