@@ -28,7 +28,7 @@ Mobile-first Nederlandse webapp voor het registreren van voeding en symptomen. D
 
 1. Pak het project uit.
 2. Maak een Supabase-project aan.
-3. Open **SQL Editor** in Supabase en voer de migraties in `supabase/migrations` op volgorde uit (`0001` t/m `0015`).
+3. Open **SQL Editor** in Supabase en voer de migraties in `supabase/migrations` op volgorde uit (`0001` t/m `0016`). Migratie `0016` moet als database-eigenaar draaien, omdat `delete_own_account()` het auth-account en privéfoto’s van de ingelogde gebruiker verwijdert.
 4. Kopieer `.env.example` naar `.env.local`.
 5. Vul `SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY` en `SITE_URL=http://localhost:3000` in vanuit je Supabase-project.
 6. Voeg in Supabase Auth → URL Configuration deze redirect URLs toe:
@@ -51,10 +51,20 @@ npm run dev
 - Voer `npm test`, `npm run typecheck` en `npm run build` uit in CI voordat je deployt.
 - Configureer Supabase-back-ups, e-mailbevestiging, rate limiting en monitoring.
 - Zet nooit een Supabase `service_role`/secret key in `NEXT_PUBLIC_*` of clientcode.
+- Accountverwijdering gebruikt de databasefunctie `delete_own_account()` en heeft geen extra environment variable. Voeg geen service-role key toe voor deze functie.
+
+## Privacy (concept)
+
+De pagina’s `/privacy` en `/account-verwijderen` zijn een concept voor juridische controle, nog geen definitieve privacyverklaring.
+
+- Vervang het placeholder-adres `privacy@example.com` in `src/lib/privacy.ts` door het echte privacycontact.
+- Vul de hostingregio van Supabase en Vercel in de privacyverklaring in. Die regio staat niet in deze repository.
+- Publieke URL’s voor de App Store en Play Console: `/privacy` en `/account-verwijderen` (de verwijderpagina is zonder login te lezen).
+- Bij registratie is een uitgevinkt keuzevak voor gezondheidsgegevens verplicht. Het tijdstip en de versie (`2026-10-30`) worden op het profiel gezet door migratie `0016`.
 
 ## Scope en bewuste beperkingen
 
-Dit is een MVP-startpunt, geen medisch gevalideerd product of volledig afgeronde productieapp. Voedingsregistraties en symptoomregistraties kunnen achteraf worden bewerkt en aan elkaar gekoppeld. Export, accountverwijdering, privacyverklaring, consent flows, betalingen en AI zijn nog niet geïmplementeerd. Recepten zijn persoonlijke invoer en krijgen geen automatische FODMAP-classificatie. De ernstschuif legt de gekozen waarde op in het formulier en toont de huidige waarde.
+Dit is een MVP-startpunt, geen medisch gevalideerd product of volledig afgeronde productieapp. Voedingsregistraties en symptoomregistraties kunnen achteraf worden bewerkt en aan elkaar gekoppeld. Betalingen en AI zijn nog niet geïmplementeerd. Recepten zijn persoonlijke invoer en krijgen geen automatische FODMAP-classificatie. De ernstschuif legt de gekozen waarde op in het formulier en toont de huidige waarde.
 
 De tabellen `food_catalog` en `food_fodmap_assessments` zijn alleen een datamodel voor latere gecontroleerde gegevens. Er zijn bewust geen FODMAP-scores ingevuld. Gebruik voor FODMAP-beoordelingen alleen rechtmatig verkregen, betrouwbare gegevens en laat de inhoud deskundig controleren. De app mag geen diagnose stellen of dieetbehandeling voorschrijven.
 
