@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Brand } from "@/components/Brand";
-import { PRIVACY_CONTACT_EMAIL, privacyController } from "@/lib/privacy";
+import { PRIVACY_CONTACT_EMAIL } from "@/lib/privacy";
 
 export const metadata: Metadata = {
   title: "Account verwijderen",
@@ -27,7 +27,6 @@ export default async function AccountDeletionPage({ searchParams }: { searchPara
       <section className="card">
         <h2 className="section-title">Als je niet kunt inloggen</h2>
         <p>Stuur een e-mail naar <a href={`mailto:${PRIVACY_CONTACT_EMAIL}`}>{PRIVACY_CONTACT_EMAIL}</a> vanaf het adres van je account. Zet in het onderwerp ‘Verwijder mijn Fodmap Tracker-account’ en vermeld het e-mailadres van het account.</p>
-        <p className="notice">PLACEHOLDER: {PRIVACY_CONTACT_EMAIL} is nog geen echt contactadres. {privacyController.legalName} ({privacyController.tradeName}) moet dit adres vervangen voordat de pagina wordt gebruikt voor Apple of Google.</p>
         <p>We verwijderen dan het account en de gegevens die eraan hangen: maaltijden, klachten, foto’s, recepten, weekmenu en profiel. We bevestigen per e-mail wanneer dat is gebeurd.</p>
         <p className="footer-note" style={{ marginTop: 0 }}>Meer over de verwerking staat in de <Link href="/privacy" style={{ color: "var(--green)", fontWeight: 700 }}>privacyverklaring</Link>.</p>
       </section>

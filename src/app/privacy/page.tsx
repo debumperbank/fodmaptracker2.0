@@ -30,10 +30,10 @@ export default function PrivacyPage() {
       <section className="card" id="contact">
         <h2 className="section-title">Contact</h2>
         <p style={{ marginBottom: 8 }}>{privacyController.legalName}, handelend onder de naam {privacyController.tradeName}</p>
+        <p style={{ margin: 0 }}>{privacyController.place}</p>
         <p style={{ margin: 0 }}>KvK {privacyController.kvk}</p>
         <p style={{ marginTop: 0 }}>btw {privacyController.btw}</p>
         <p style={{ marginBottom: 0 }}>{notice.emailLabel}: <a href={`mailto:${PRIVACY_CONTACT_EMAIL}`}>{PRIVACY_CONTACT_EMAIL}</a></p>
-        <p className="notice">{notice.emailPlaceholderNote}</p>
         <p className="footer-note">Ingelogd verwijder je het account zelf via Profiel. Zonder account gebruik je de pagina <Link href="/account-verwijderen" style={{ color: "var(--green)", fontWeight: 700 }}>Account verwijderen</Link>.</p>
       </section>
       <p className="footer-note"><Link href="/">Terug naar de startpagina</Link></p>

@@ -57,7 +57,7 @@ npm run dev
 
 De pagina’s `/privacy` en `/account-verwijderen` zijn een concept voor juridische controle, nog geen definitieve privacyverklaring.
 
-- Vervang het placeholder-adres `privacy@example.com` in `src/lib/privacy.ts` door het echte privacycontact.
+- Contactadres: codedbydefault@gmail.com. De verwerkingsverantwoordelijke is gevestigd in Hulst, Zeeland (Nederland).
 - Vul de hostingregio van Supabase en Vercel in de privacyverklaring in. Die regio staat niet in deze repository.
 - Publieke URL’s voor de App Store en Play Console: `/privacy` en `/account-verwijderen` (de verwijderpagina is zonder login te lezen).
 - Bij registratie is een uitgevinkt keuzevak voor gezondheidsgegevens verplicht. Het tijdstip en de versie (`2026-10-30`) worden op het profiel gezet door migratie `0016`.

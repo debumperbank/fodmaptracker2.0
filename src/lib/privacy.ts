@@ -2,14 +2,14 @@ import type { AppLanguage } from "@/lib/i18n";
 
 export const PRIVACY_NOTICE_VERSION = "2026-10-30";
 
-// PLACEHOLDER. Replace with the real privacy contact before publication.
-export const PRIVACY_CONTACT_EMAIL = "privacy@example.com";
+export const PRIVACY_CONTACT_EMAIL = "codedbydefault@gmail.com";
 
 export const privacyController = {
   legalName: "De Bumperbank",
   tradeName: "CodedByDefault",
   kvk: "42171617",
   btw: "NL005557496B77",
+  place: "Hulst, Zeeland (Nederland)",
 } as const;
 
 export type PrivacySection = {
@@ -25,7 +25,6 @@ export type PrivacyNotice = {
   intro: string;
   sections: PrivacySection[];
   emailLabel: string;
-  emailPlaceholderNote: string;
   regionTodo: string;
 };
 
@@ -38,14 +37,13 @@ export const privacyNotices: Partial<Record<AppLanguage, PrivacyNotice>> = {
     draft: "Concept voor juridische controle. Dit is nog geen definitieve privacyverklaring. Laat deze tekst controleren voordat de app openbaar wordt aangeboden.",
     intro: "Fodmap Tracker is een hulpmiddel om maaltijden en klachten bij te houden. De app stelt geen diagnose en geeft geen dieetbehandeling. Deze verklaring beschrijft wat we van je bewaren.",
     emailLabel: "E-mail",
-    emailPlaceholderNote: "PLACEHOLDER: vervang privacy@example.com door het echte privacycontact van CodedByDefault voordat deze verklaring wordt gepubliceerd.",
     regionTodo: "TODO: vul de hostingregio in nadat die in het Supabase-project en het Vercel-project is bevestigd. De regio staat niet in deze repository en is daarom hier niet ingevuld.",
     sections: [
       {
         id: "verantwoordelijke",
         heading: "Wie is verantwoordelijk?",
         paragraphs: [
-          "De verwerkingsverantwoordelijke is De Bumperbank, handelend onder de naam CodedByDefault, KvK 42171617, btw-nummer NL005557496B77.",
+          "De verwerkingsverantwoordelijke is De Bumperbank, handelend onder de naam CodedByDefault, gevestigd in Hulst, Zeeland (Nederland), KvK 42171617, btw-nummer NL005557496B77.",
           "Voor privacyvragen, inzage, een export, correctie of een verwijderverzoek gebruik je het contactadres onderaan deze pagina, of de knoppen in je profiel als je bent ingelogd.",
         ],
       },
