@@ -3,7 +3,7 @@ title: 'Recette : Lumpia Shanghai pauvres en FODMAP'
 slug: recept-low-fodmap-lumpia-shanghai
 lang: fr
 date: 2026-10-30
-author: Rédaction Tolerio
+author: Rédaction Fodmap-Tracker
 reading_time_minutes: 5
 summary: Des rouleaux philippins croustillants sans ail ni oignon, parfumés au gingembre, au vert d'oignon de printemps et à l'huile infusée à l'ail, avec une sauce pimentée maison.
 tags:

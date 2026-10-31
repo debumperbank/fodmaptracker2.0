@@ -3,7 +3,7 @@ title: 'Recipe: Pasta alla Norma with aubergine, without onion or garlic'
 slug: recept-low-fodmap-pasta-alla-norma
 lang: en
 date: 2026-10-30
-author: Tolerio editorial team
+author: Fodmap-Tracker editorial team
 reading_time_minutes: 5
 summary: A Sicilian classic with roasted aubergine, canned tomatoes, basil and Parmesan, made with gluten-free pasta or a small portion of regular pasta.
 tags:

@@ -3,7 +3,7 @@ title: 'Recept: Pizza verde met spinazie, groene paprika en olijven'
 slug: recept-low-fodmap-pizza-verde
 lang: nl
 date: 2026-10-30
-author: Tolerio redactie
+author: Fodmap-Tracker redactie
 reading_time_minutes: 5
 summary: Een krokante glutenvrije pizza met tomaat uit blik, mozzarella, spinazie, groene paprika en zwarte olijven, met elke topping binnen de Monash-portie per persoon.
 tags:

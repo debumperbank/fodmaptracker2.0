@@ -3,7 +3,7 @@ title: "Filipino cooking without a tummy ache: the low-FODMAP guide"
 slug: filipijns-koken-zonder-buikpijn-low-fodmap-gids
 lang: en
 date: 2026-10-30
-author: Tolerio editorial team
+author: Fodmap-Tracker editorial team
 reading_time_minutes: 7
 summary: "Bawang, sibuyas, toyo, bagoong, patis and gata: which Filipino ingredients are tricky on a low-FODMAP diet, and what are the smart swaps?"
 tags:

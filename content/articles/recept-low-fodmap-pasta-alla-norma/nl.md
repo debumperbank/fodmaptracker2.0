@@ -3,7 +3,7 @@ title: 'Recept: Pasta alla Norma met aubergine, zonder ui en knoflook'
 slug: recept-low-fodmap-pasta-alla-norma
 lang: nl
 date: 2026-10-30
-author: Tolerio redactie
+author: Fodmap-Tracker redactie
 reading_time_minutes: 5
 summary: Een Siciliaanse klassieker met geroosterde aubergine, tomaat uit blik, basilicum en Parmezaan, met glutenvrije pasta of een kleine portie gewone pasta.
 tags:

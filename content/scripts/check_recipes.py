@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validates the Tolerio articles.
+"""Validates the Fodmap-Tracker articles.
 
 - Every article parses as YAML frontmatter and has the required fields.
 - Recipes use the structured ingredient, step and fodmap_per_serving schema (see README).

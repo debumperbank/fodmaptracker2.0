@@ -3,7 +3,7 @@ title: 'Rezept: Low-FODMAP Lumpia Shanghai'
 slug: recept-low-fodmap-lumpia-shanghai
 lang: de
 date: 2026-10-30
-author: Tolerio Redaktion
+author: Fodmap-Tracker Redaktion
 reading_time_minutes: 5
 summary: Knusprige philippinische Frühlingsröllchen ohne Knoblauch und Zwiebel, mit Ingwer, Frühlingszwiebelgrün und Knoblauchöl, dazu ein selbstgemachter Chili-Dip.
 tags:

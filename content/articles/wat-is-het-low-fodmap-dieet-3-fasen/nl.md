@@ -3,7 +3,7 @@ title: "Wat is het low-FODMAP dieet? De 3 fasen uitgelegd"
 slug: wat-is-het-low-fodmap-dieet-3-fasen
 lang: nl
 date: 2026-10-30
-author: Tolerio redactie
+author: Fodmap-Tracker redactie
 reading_time_minutes: 4
 summary: "Eliminatie, herintroductie en personalisatie: zo werkt het low-FODMAP dieet volgens Monash University, en waarom je het samen met een diëtist doet."
 tags:

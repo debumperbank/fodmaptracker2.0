@@ -3,7 +3,7 @@ title: 'Recipe: Flemish beef and beer stew, without onion'
 slug: recept-low-fodmap-vlaams-stoofvlees
 lang: en
 date: 2026-10-30
-author: Tolerio editorial team
+author: Fodmap-Tracker editorial team
 reading_time_minutes: 5
 summary: Tender beef, slow-cooked for hours in dark beer with mustard, thyme and bay, with leek greens and garlic-infused oil instead of onion.
 tags:

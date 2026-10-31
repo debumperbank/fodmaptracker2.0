@@ -3,7 +3,7 @@ title: "Philippinisch kochen ohne Bauchweh: der Low-FODMAP-Leitfaden"
 slug: filipijns-koken-zonder-buikpijn-low-fodmap-gids
 lang: de
 date: 2026-10-30
-author: Tolerio Redaktion
+author: Fodmap-Tracker Redaktion
 reading_time_minutes: 7
 summary: "Bawang, Sibuyas, Toyo, Bagoong, Patis und Gata: Welche philippinischen Zutaten sind bei einer Low-FODMAP-Ernährung schwierig, und was sind die cleveren Alternativen?"
 tags:

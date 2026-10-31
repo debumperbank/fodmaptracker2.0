@@ -9,9 +9,9 @@ import { isHalloweenToday } from "@/lib/seasonal";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: { default: "Tolerio", template: "%s · Tolerio" },
+  title: { default: "Fodmap-Tracker", template: "%s · Fodmap-Tracker" },
   description: "Houd voeding en symptomen overzichtelijk bij.",
-  applicationName: "Tolerio",
+  applicationName: "Fodmap-Tracker",
   manifest: "/manifest.webmanifest?v=4",
   icons: {
     icon: [{ url: "/icon-192.png?v=3", sizes: "192x192", type: "image/png" }],
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   appleWebApp: {
     capable: true,
-    title: "Tolerio",
+    title: "Fodmap-Tracker",
     statusBarStyle: "default",
     startupImage: [
       { url: "/splash/640x1136.png", media: "(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" },
@@ -37,14 +37,14 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "Tolerio",
+    title: "Fodmap-Tracker",
     description: "Houd voeding en symptomen overzichtelijk bij.",
-    siteName: "Tolerio",
+    siteName: "Fodmap-Tracker",
     type: "website",
   },
   twitter: {
     card: "summary",
-    title: "Tolerio",
+    title: "Fodmap-Tracker",
     description: "Houd voeding en symptomen overzichtelijk bij.",
   },
   

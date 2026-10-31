@@ -1,12 +1,12 @@
-# Tolerio content export
+# Fodmap-Tracker content export
 
-Articles from the Tolerio Blog, exported as Markdown for use in the app.
-Source: the "Tolerio Blog" Page (Dutch master), 30 October 2026.
+Articles from the Fodmap-Tracker Blog, exported as Markdown for use in the app.
+Source: the "Fodmap-Tracker Blog" Page (Dutch master), 30 October 2026.
 
 ## Structure
 
 ```
-Tolerio-content/
+Fodmap-Tracker-content/
 ├── README.md
 ├── scripts/check_recipes.py   (validation + cross-language check)
 └── articles/
@@ -34,7 +34,7 @@ All articles:
 | `slug` | string | Dutch-based kebab-case, identical across languages (use it to link translations) |
 | `lang` | string | `nl`, `fr`, `de` or `en` |
 | `date` | date | `2026-10-30` |
-| `author` | string | localized "Tolerio redactie" |
+| `author` | string | localized "Fodmap-Tracker redactie" |
 | `reading_time_minutes` | int | editorial estimate |
 | `summary` | string | 1-2 sentences, localized |
 | `tags` | list of strings | Dutch kebab-case keys, identical across languages (localize in the UI if needed) |

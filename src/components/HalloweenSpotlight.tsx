@@ -11,7 +11,7 @@ export function HalloweenSpotlight({ recipes }: { recipes: CuratedRecipe[] }) {
   const featured = recipes.filter(recipe => halloweenTitles[recipe.title]).slice(0, 3);
   if (featured.length === 0) return null;
   return <section className="halloween-spotlight" aria-labelledby="halloween-title">
-    <div className="eyebrow">Halloween bij Tolerio</div>
+    <div className="eyebrow">Halloween bij Fodmap-Tracker</div>
     <h2 id="halloween-title" className="page-title">Drie griezelig lekkere gerechten</h2>
     <p>Kindvriendelijke pompoenrecepten voor een gezellige avond. De normale portie- en fase-informatie blijft altijd leidend.</p>
     <div className="halloween-grid">{featured.map(recipe=>{const theme=halloweenTitles[recipe.title];return <article className="halloween-card" key={recipe.id}>

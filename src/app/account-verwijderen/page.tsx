@@ -5,7 +5,7 @@ import { PRIVACY_CONTACT_EMAIL } from "@/lib/privacy";
 
 export const metadata: Metadata = {
   title: "Account verwijderen",
-  description: "Zo verwijder je je Tolerio-account en de bijbehorende gegevens, ook zonder dat je bent ingelogd.",
+  description: "Zo verwijder je je Fodmap-Tracker-account en de bijbehorende gegevens, ook zonder dat je bent ingelogd.",
 };
 
 export default async function AccountDeletionPage({ searchParams }: { searchParams: Promise<{ message?: string }> }) {
@@ -26,7 +26,7 @@ export default async function AccountDeletionPage({ searchParams }: { searchPara
       </section>
       <section className="card">
         <h2 className="section-title">Als je niet kunt inloggen</h2>
-        <p>Stuur een e-mail naar <a href={`mailto:${PRIVACY_CONTACT_EMAIL}`}>{PRIVACY_CONTACT_EMAIL}</a> vanaf het adres van je account. Zet in het onderwerp ‘Verwijder mijn Tolerio-account’ en vermeld het e-mailadres van het account.</p>
+        <p>Stuur een e-mail naar <a href={`mailto:${PRIVACY_CONTACT_EMAIL}`}>{PRIVACY_CONTACT_EMAIL}</a> vanaf het adres van je account. Zet in het onderwerp ‘Verwijder mijn Fodmap-Tracker-account’ en vermeld het e-mailadres van het account.</p>
         <p>We verwijderen dan het account en de gegevens die eraan hangen: maaltijden, klachten, foto’s, recepten, weekmenu en profiel. We bevestigen per e-mail wanneer dat is gebeurd.</p>
         <p className="footer-note" style={{ marginTop: 0 }}>Meer over de verwerking staat in de <Link href="/privacy" style={{ color: "var(--green)", fontWeight: 700 }}>privacyverklaring</Link>.</p>
       </section>

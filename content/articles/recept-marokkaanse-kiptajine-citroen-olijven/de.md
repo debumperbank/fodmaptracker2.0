@@ -3,7 +3,7 @@ title: 'Rezept: Marokkanische Hähnchen-Tajine mit Zitrone, Oliven, Karotte und 
 slug: recept-marokkaanse-kiptajine-citroen-olijven
 lang: de
 date: 2026-10-30
-author: Tolerio Redaktion
+author: Fodmap-Tracker Redaktion
 reading_time_minutes: 5
 summary: 'Eine duftende Tajine ohne Zwiebel und Knoblauch: Hähnchenschenkel, Karotte und Pastinake mit selbst gemischtem Ras el Hanout, Zitrone und grünen Oliven.'
 tags:

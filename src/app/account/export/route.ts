@@ -20,6 +20,6 @@ export async function GET(request: Request) {
   }
 
   return new NextResponse(JSON.stringify(data, null, 2), {
-    headers: { ...headers, "Content-Type": "application/json; charset=utf-8", "Content-Disposition": "attachment; filename=\"tolerio-export.json\"" },
+    headers: { ...headers, "Content-Type": "application/json; charset=utf-8", "Content-Disposition": "attachment; filename=\"fodmap-tracker-export.json\"" },
   });
 }

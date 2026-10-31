@@ -3,7 +3,7 @@ title: 'Rezept: Pasta alla Norma mit Aubergine, ohne Zwiebel und Knoblauch'
 slug: recept-low-fodmap-pasta-alla-norma
 lang: de
 date: 2026-10-30
-author: Tolerio Redaktion
+author: Fodmap-Tracker Redaktion
 reading_time_minutes: 5
 summary: Ein sizilianischer Klassiker mit gerösteter Aubergine, Dosentomaten, Basilikum und Parmesan, mit glutenfreier Pasta oder einer kleinen Portion normaler Pasta.
 tags:

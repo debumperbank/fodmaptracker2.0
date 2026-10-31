@@ -3,7 +3,7 @@ title: "Filipijns koken zonder buikpijn: de low-FODMAP gids"
 slug: filipijns-koken-zonder-buikpijn-low-fodmap-gids
 lang: nl
 date: 2026-10-30
-author: Tolerio redactie
+author: Fodmap-Tracker redactie
 reading_time_minutes: 7
 summary: "Bawang, sibuyas, toyo, bagoong, patis en gata: welke Filipijnse ingrediënten zijn lastig bij een low-FODMAP dieet, en wat zijn de slimme swaps?"
 tags:

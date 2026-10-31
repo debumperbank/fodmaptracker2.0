@@ -3,7 +3,7 @@ title: 'Recipe: Low-FODMAP Lumpia Shanghai'
 slug: recept-low-fodmap-lumpia-shanghai
 lang: en
 date: 2026-10-30
-author: Tolerio editorial team
+author: Fodmap-Tracker editorial team
 reading_time_minutes: 5
 summary: Crispy Filipino spring rolls without garlic or onion, flavoured with ginger, spring onion greens and garlic-infused oil, plus a homemade chilli dip.
 tags:

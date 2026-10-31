@@ -3,7 +3,7 @@ title: 'Recipe: Rainbow bowl with roasted carrot hummus'
 slug: recept-regenboogbowl-wortelhummus
 lang: en
 date: 2026-10-30
-author: Tolerio editorial team
+author: Fodmap-Tracker editorial team
 reading_time_minutes: 4
 summary: A colourful plant-based bowl with quinoa, roasted kabocha, crunchy vegetables and an orange hummus in which roasted carrot replaces part of the chickpeas.
 tags:

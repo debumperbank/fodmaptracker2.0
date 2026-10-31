@@ -3,7 +3,7 @@ title: 'Recette : pasta alla Norma à l''aubergine, sans oignon ni ail'
 slug: recept-low-fodmap-pasta-alla-norma
 lang: fr
 date: 2026-10-30
-author: Rédaction Tolerio
+author: Rédaction Fodmap-Tracker
 reading_time_minutes: 5
 summary: Un classique sicilien avec aubergine rôtie, tomates en conserve, basilic et parmesan, avec des pâtes sans gluten ou une petite portion de pâtes classiques.
 tags:
