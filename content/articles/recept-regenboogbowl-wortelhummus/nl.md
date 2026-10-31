@@ -3,7 +3,7 @@ title: 'Recept: Regenboogbowl met geroosterde-wortelhummus'
 slug: recept-regenboogbowl-wortelhummus
 lang: nl
 date: 2026-10-30
-author: Fodmap-tracker redactie
+author: Tolerio redactie
 reading_time_minutes: 4
 summary: Een kleurrijke plantaardige bowl met quinoa, geroosterde kabocha, knapperige groenten en een oranje hummus waarin geroosterde wortel een deel van de kikkererwten vervangt.
 tags:

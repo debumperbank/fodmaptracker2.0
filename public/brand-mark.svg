@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
-  <title id="title">Fodmap Tracker</title>
+  <title id="title">Tolerio</title>
   <rect width="512" height="512" rx="112" fill="#e5f1e9"/>
   <circle cx="256" cy="256" r="166" fill="#22664f"/>
   <text x="256" y="292" text-anchor="middle" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="164" font-weight="700" letter-spacing="-12">ft.</text>

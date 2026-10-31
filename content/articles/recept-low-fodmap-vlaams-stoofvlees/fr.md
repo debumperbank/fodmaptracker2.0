@@ -3,7 +3,7 @@ title: 'Recette : carbonnade flamande à la bière, sans oignon'
 slug: recept-low-fodmap-vlaams-stoofvlees
 lang: fr
 date: 2026-10-30
-author: Rédaction Fodmap-tracker
+author: Rédaction Tolerio
 reading_time_minutes: 5
 summary: Du bœuf fondant, mijoté pendant des heures dans de la bière brune avec moutarde, thym et laurier, avec du vert de poireau et de l'huile infusée à l'ail à la place de l'oignon.
 tags:

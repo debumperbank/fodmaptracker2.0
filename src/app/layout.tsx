@@ -8,17 +8,17 @@ import { getRequestLanguage } from "@/lib/request-language";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: { default: "Fodmap Tracker", template: "%s · Fodmap Tracker" },
+  title: { default: "Tolerio", template: "%s · Tolerio" },
   description: "Houd voeding en symptomen overzichtelijk bij.",
-  applicationName: "Fodmap Tracker",
-  manifest: "/manifest.webmanifest?v=3",
+  applicationName: "Tolerio",
+  manifest: "/manifest.webmanifest?v=4",
   icons: {
     icon: [{ url: "/icon-192.png?v=3", sizes: "192x192", type: "image/png" }],
     apple: [{ url: "/apple-touch-icon.png?v=3", sizes: "180x180", type: "image/png" }],
   },
   appleWebApp: {
     capable: true,
-    title: "Fodmap Tracker",
+    title: "Tolerio",
     statusBarStyle: "default",
     startupImage: [
       { url: "/splash/640x1136.png", media: "(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" },
@@ -34,6 +34,17 @@ export const metadata: Metadata = {
       { url: "/splash/1206x2622.png", media: "(device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3)" },
       { url: "/splash/1320x2868.png", media: "(device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3)" },
     ],
+  },
+  openGraph: {
+    title: "Tolerio",
+    description: "Houd voeding en symptomen overzichtelijk bij.",
+    siteName: "Tolerio",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Tolerio",
+    description: "Houd voeding en symptomen overzichtelijk bij.",
   },
   
 };

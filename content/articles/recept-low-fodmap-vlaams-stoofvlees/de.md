@@ -3,7 +3,7 @@ title: 'Rezept: Flämischer Rindfleisch-Bier-Schmortopf, ohne Zwiebel'
 slug: recept-low-fodmap-vlaams-stoofvlees
 lang: de
 date: 2026-10-30
-author: Fodmap-tracker Redaktion
+author: Tolerio Redaktion
 reading_time_minutes: 5
 summary: Zartes Rindfleisch, stundenlang in dunklem Bier mit Senf, Thymian und Lorbeer geschmort, mit Lauchgrün und Knoblauchöl statt Zwiebel.
 tags:

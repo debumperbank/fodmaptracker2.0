@@ -3,7 +3,7 @@ title: 'Recette : tajine marocain de poulet au citron, olives, carottes et panai
 slug: recept-marokkaanse-kiptajine-citroen-olijven
 lang: fr
 date: 2026-10-30
-author: Rédaction Fodmap-tracker
+author: Rédaction Tolerio
 reading_time_minutes: 5
 summary: 'Un tajine parfumé sans oignon ni ail : hauts de cuisse de poulet, carottes et panais avec un ras el hanout maison, du citron et des olives vertes.'
 tags:

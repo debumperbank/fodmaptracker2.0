@@ -3,7 +3,7 @@ title: 'Recipe: Moroccan chicken tagine with lemon, olives, carrot and parsnip'
 slug: recept-marokkaanse-kiptajine-citroen-olijven
 lang: en
 date: 2026-10-30
-author: Fodmap-tracker editorial team
+author: Tolerio editorial team
 reading_time_minutes: 5
 summary: 'A fragrant tagine without onion or garlic: chicken thighs, carrot and parsnip with homemade ras el hanout, lemon and green olives.'
 tags:

@@ -3,7 +3,7 @@ title: 'Rezept: Regenbogen-Bowl mit Hummus aus gerösteten Karotten'
 slug: recept-regenboogbowl-wortelhummus
 lang: de
 date: 2026-10-30
-author: Fodmap-tracker Redaktion
+author: Tolerio Redaktion
 reading_time_minutes: 4
 summary: Eine bunte pflanzliche Bowl mit Quinoa, gerösteter Kabocha, knackigem Gemüse und einem orangen Hummus, in dem geröstete Karotte einen Teil der Kichererbsen ersetzt.
 tags:

@@ -3,7 +3,7 @@ title: "Cuisiner philippin sans mal de ventre : le guide pauvre en FODMAP"
 slug: filipijns-koken-zonder-buikpijn-low-fodmap-gids
 lang: fr
 date: 2026-10-30
-author: Rédaction Fodmap-tracker
+author: Rédaction Tolerio
 reading_time_minutes: 7
 summary: "Bawang, sibuyas, toyo, bagoong, patis et gata : quels ingrédients philippins posent problème dans un régime pauvre en FODMAP, et quelles sont les bonnes alternatives ?"
 tags:

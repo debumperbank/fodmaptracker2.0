@@ -3,7 +3,7 @@ title: "Qu'est-ce que le régime pauvre en FODMAP ? Les 3 phases expliquées"
 slug: wat-is-het-low-fodmap-dieet-3-fasen
 lang: fr
 date: 2026-10-30
-author: Rédaction Fodmap-tracker
+author: Rédaction Tolerio
 reading_time_minutes: 4
 summary: "Élimination, réintroduction et personnalisation : comment fonctionne le régime pauvre en FODMAP selon l'Université Monash, et pourquoi le suivre avec un·e diététicien·ne."
 tags:

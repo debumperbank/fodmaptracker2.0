@@ -3,7 +3,7 @@ title: 'Recipe: Pizza verde with spinach, green pepper and olives'
 slug: recept-low-fodmap-pizza-verde
 lang: en
 date: 2026-10-30
-author: Fodmap-tracker editorial team
+author: Tolerio editorial team
 reading_time_minutes: 5
 summary: A crisp gluten-free pizza with canned tomatoes, mozzarella, spinach, green pepper and black olives, with every topping within the Monash serve per person.
 tags:

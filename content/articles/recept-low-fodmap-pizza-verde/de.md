@@ -3,7 +3,7 @@ title: 'Rezept: Pizza verde mit Spinat, grüner Paprika und Oliven'
 slug: recept-low-fodmap-pizza-verde
 lang: de
 date: 2026-10-30
-author: Fodmap-tracker Redaktion
+author: Tolerio Redaktion
 reading_time_minutes: 5
 summary: Eine knusprige glutenfreie Pizza mit Dosentomaten, Mozzarella, Spinat, grüner Paprika und schwarzen Oliven, jeder Belag innerhalb der Monash-Portion pro Person.
 tags:

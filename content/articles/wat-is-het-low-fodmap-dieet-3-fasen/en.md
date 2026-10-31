@@ -3,7 +3,7 @@ title: "What is the low-FODMAP diet? The 3 phases explained"
 slug: wat-is-het-low-fodmap-dieet-3-fasen
 lang: en
 date: 2026-10-30
-author: Fodmap-tracker editorial team
+author: Tolerio editorial team
 reading_time_minutes: 4
 summary: "Elimination, reintroduction and personalisation: how the low-FODMAP diet works according to Monash University, and why you should do it with a dietitian."
 tags:

@@ -3,7 +3,7 @@ title: 'Recept: Low-FODMAP Lumpia Shanghai'
 slug: recept-low-fodmap-lumpia-shanghai
 lang: nl
 date: 2026-10-30
-author: Fodmap-tracker redactie
+author: Tolerio redactie
 reading_time_minutes: 5
 summary: Knapperige Filipijnse loempiaatjes zonder knoflook en ui, met gember, lente-uigroen en knoflookolie, plus een zelfgemaakte chilidip.
 tags:

@@ -3,7 +3,7 @@ title: 'Recept: Vlaams stoofvlees met bier, zonder ui'
 slug: recept-low-fodmap-vlaams-stoofvlees
 lang: nl
 date: 2026-10-30
-author: Fodmap-tracker redactie
+author: Tolerio redactie
 reading_time_minutes: 5
 summary: Mals rundvlees, uren gestoofd in donker bier met mosterd, tijm en laurier, met preigroen en knoflookolie in plaats van ui.
 tags:

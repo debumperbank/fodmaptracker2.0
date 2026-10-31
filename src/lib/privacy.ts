@@ -1,6 +1,6 @@
 import type { AppLanguage } from "@/lib/i18n";
 
-export const PRIVACY_NOTICE_VERSION = "2026-10-30";
+export const PRIVACY_NOTICE_VERSION = "2026-10-31";
 
 export const PRIVACY_CONTACT_EMAIL = "codedbydefault@gmail.com";
 
@@ -33,9 +33,9 @@ export type PrivacyNotice = {
 export const privacyNotices: Partial<Record<AppLanguage, PrivacyNotice>> = {
   nl: {
     title: "Privacyverklaring",
-    description: "Concept-privacyverklaring van Fodmap Tracker: welke gegevens we verwerken, waarom, en welke rechten je hebt.",
+    description: "Concept-privacyverklaring van Tolerio: welke gegevens we verwerken, waarom, en welke rechten je hebt.",
     draft: "Concept voor juridische controle. Dit is nog geen definitieve privacyverklaring. Laat deze tekst controleren voordat de app openbaar wordt aangeboden.",
-    intro: "Fodmap Tracker is een hulpmiddel om maaltijden en klachten bij te houden. De app stelt geen diagnose en geeft geen dieetbehandeling. Deze verklaring beschrijft wat we van je bewaren.",
+    intro: "Tolerio is een hulpmiddel om maaltijden en klachten bij te houden. De app stelt geen diagnose en geeft geen dieetbehandeling. Deze verklaring beschrijft wat we van je bewaren.",
     emailLabel: "E-mail",
     regionTodo: "TODO: vul de hostingregio in nadat die in het Supabase-project en het Vercel-project is bevestigd. De regio staat niet in deze repository en is daarom hier niet ingevuld.",
     sections: [

@@ -1,4 +1,4 @@
-# Fodmap Tracker 2.0 — MVP
+# Tolerio 2.0 — MVP
 
 Mobile-first Nederlandse webapp voor het registreren van voeding en symptomen. De app bevat accounts, een persoonlijk dashboard, voedings- en symptoomregistraties, persoonlijke recepten en een weekmenu. Het Supabase-schema gebruikt Row Level Security (RLS).
 

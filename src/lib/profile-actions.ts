@@ -49,7 +49,8 @@ export async function updateLanguage(form: FormData) {
   revalidatePath("/", "layout");
 }
 
-export async function startEliminationPhase() {
+export async function startEliminationPhase(form: FormData) {
+  if (field(form, "safety_acknowledgement") !== "yes") redirect("/profiel?error=fase-veiligheid");
   const { supabase, user } = await requireUser();
   const today = new Date();
   const plannedEnd = new Date(today);

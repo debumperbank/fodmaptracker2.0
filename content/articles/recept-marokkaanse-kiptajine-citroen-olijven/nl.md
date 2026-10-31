@@ -3,7 +3,7 @@ title: 'Recept: Marokkaanse kiptajine met citroen, olijven, wortel en pastinaak'
 slug: recept-marokkaanse-kiptajine-citroen-olijven
 lang: nl
 date: 2026-10-30
-author: Fodmap-tracker redactie
+author: Tolerio redactie
 reading_time_minutes: 5
 summary: 'Een geurige tajine zonder ui en knoflook: kippendij, wortel en pastinaak met zelfgemaakte ras el hanout, citroen en groene olijven.'
 tags:

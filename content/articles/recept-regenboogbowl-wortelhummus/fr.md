@@ -3,7 +3,7 @@ title: 'Recette : bowl arc-en-ciel et houmous de carottes rôties'
 slug: recept-regenboogbowl-wortelhummus
 lang: fr
 date: 2026-10-30
-author: Rédaction Fodmap-tracker
+author: Rédaction Tolerio
 reading_time_minutes: 4
 summary: Un bowl végétal coloré avec quinoa, kabocha rôtie, légumes croquants et un houmous orange dans lequel la carotte rôtie remplace une partie des pois chiches.
 tags:

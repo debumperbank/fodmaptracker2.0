@@ -3,7 +3,7 @@ title: 'Recette : pizza verde aux épinards, poivron vert et olives'
 slug: recept-low-fodmap-pizza-verde
 lang: fr
 date: 2026-10-30
-author: Rédaction Fodmap-tracker
+author: Rédaction Tolerio
 reading_time_minutes: 5
 summary: Une pizza sans gluten croustillante avec tomates en conserve, mozzarella, épinards, poivron vert et olives noires, chaque garniture restant dans la portion Monash par personne.
 tags:
