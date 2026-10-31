@@ -119,8 +119,38 @@ export const availableRecipeImageSlugs = [
 
 const availableRecipeImages = new Set<string>(availableRecipeImageSlugs);
 
+const recipeImageAliases: Record<string, string> = {
+  "Koude rijstnoedelsalade met limoen-kip": "aziatische-kip-noedelsalade",
+  "Lauwe quinoa-paksoisalade met sinaasappel": "aziatische-quinoasalade",
+  "Cacao-haverballetjes met pinda en pompoenpit": "chocolade-macadamia-energiebolletjes",
+  "Ovenzalm met dille-mosterdkrieltjes": "citroenzalm-met-makrutlimoen",
+  "Kiwi-komkommer ontbijtbowl": "groene-kiwi-spinaziesmoothie",
+  "Polentamuffins met paprika en bieslook": "hartige-paprika-fetamuffins",
+  "Haverpannenkoekjes met kiwi en limoen": "havermout-banaanpannenkoeken",
+  "Wortel-polentakoekjes met kruidensaus": "kruidige-wortelfritters",
+  "Krokante haverclusters met pecan en kaneel": "maple-granola-met-yoghurt",
+  "Paprika-gemberkip met tomaat en rijst": "milde-kip-madras-met-rijst",
+  "Krokante maïstortillacups met ei en spinazie": "ontbijttortillas",
+  "Kabocha-paprikasoep met gember": "pompoen-wortelsoep",
+  "Citroenquinoa met geroosterde wortel en ei": "quinoabowl-met-geroosterde-groente-en-ei",
+  "Quinoa-ontbijt met kiwi en aardbei": "quinoapap-met-banaan-en-yoghurt",
+  "Krokante tofu-rijstpan met paksoi": "roertofu-met-wortel-en-courgette",
+  "Citroenpasta met forel en spinazie": "romige-pasta-met-gerookte-zalm",
+  "Krokante aardappelgnocchi met kabocha en citroen": "romige-pompoen-saliegnocchi",
+  "Sinaasappel-cacaocakeje uit de magnetron": "snelle-chocolade-mugcake",
+  "Aardappel-zalmschotel met dillekorst": "snelle-zalm-aardappelgratin",
+  "Kruiden-eiwrap met spinazie en tomaat": "spinazie-feta-omelet",
+  "Kokos-limoensoep met kip en rijst": "thaise-groene-kipcurry",
+  "Chocolade-sinaasappel overnight chia": "vegan-chocolade-chiapudding",
+  "Warme haver met wortel, sinaasappel en pecan": "worteltaartpap",
+  "Plaatmaaltijd met zalm, citroenaardappel en boontjes": "zalm-met-dikke-aardappelparten",
+  "Mini-eimuffins met zalm en spinazie": "zalm-ricottafrittata",
+  "Sesam-zalmrijstkom met komkommer en wortel": "zalmpokebowl",
+  "Kabocha-feta ontbijtgratin": "zoete-aardappel-fetafrittata",
+};
+
 export function recipeImagePath(title: string): string | null {
-  const slug = recipeImageSlug(title);
+  const slug = recipeImageAliases[title] ?? recipeImageSlug(title);
   if (!availableRecipeImages.has(slug)) return null;
   return `/recipes/items/${slug}.webp`;
 }

@@ -4,7 +4,9 @@ import type { CuratedRecipe } from "@/lib/types";
 const halloweenTitles: Record<string, { title: string; image: string }> = {
   "Romige pompoen-saliepasta": { title: "Pompoenpasta uit het spookbos", image: "/halloween/pompoen-saliepasta.webp" },
   "Romige pompoen-saliegnocchi": { title: "Spookjesgnocchi met pompoen", image: "/halloween/pompoen-saliegnocchi.webp" },
+  "Krokante aardappelgnocchi met kabocha en citroen": { title: "Spookjesgnocchi met pompoen", image: "/halloween/pompoen-saliegnocchi.webp" },
   "Pompoen-wortelsoep": { title: "Heksenketel met pompoen en wortel", image: "/halloween/pompoen-wortelsoep.webp" },
+  "Kabocha-paprikasoep met gember": { title: "Heksenketel met pompoen en paprika", image: "/halloween/pompoen-wortelsoep.webp" },
 };
 
 export function HalloweenSpotlight({ recipes }: { recipes: CuratedRecipe[] }) {

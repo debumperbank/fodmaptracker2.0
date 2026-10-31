@@ -31,6 +31,12 @@ describe("recipeImageSlug", () => {
     for (const title of pastaTitles) expect(recipeImagePath(title)).toBe(`/recipes/items/${recipeImageSlug(title)}.webp`);
   });
 
+  it("keeps app-owned images connected after independent recipe replacements", () => {
+    expect(recipeImagePath("Koude rijstnoedelsalade met limoen-kip")).toBe("/recipes/items/aziatische-kip-noedelsalade.webp");
+    expect(recipeImagePath("Kabocha-paprikasoep met gember")).toBe("/recipes/items/pompoen-wortelsoep.webp");
+    expect(recipeImagePath("Sesam-zalmrijstkom met komkommer en wortel")).toBe("/recipes/items/zalmpokebowl.webp");
+  });
+
   it("lists exactly the files in public/recipes/items", () => {
     const files = readdirSync("public/recipes/items").filter(name => name.endsWith(".webp")).map(name => name.slice(0, -".webp".length)).sort();
     expect([...availableRecipeImageSlugs].sort()).toEqual(files);

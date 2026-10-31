@@ -16,5 +16,7 @@ export function isHalloweenToday(date = new Date()) {
 export const halloweenRecipeImages: Record<string, string> = {
   "Romige pompoen-saliepasta": "/halloween/pompoen-saliepasta.webp",
   "Romige pompoen-saliegnocchi": "/halloween/pompoen-saliegnocchi.webp",
+  "Krokante aardappelgnocchi met kabocha en citroen": "/halloween/pompoen-saliegnocchi.webp",
   "Pompoen-wortelsoep": "/halloween/pompoen-wortelsoep.webp",
+  "Kabocha-paprikasoep met gember": "/halloween/pompoen-wortelsoep.webp",
 };
